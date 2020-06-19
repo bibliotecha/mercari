@@ -100,9 +100,15 @@ header {
   }
 }
 
+/* セクション */
+section {
+  padding-bottom: 50px;
+  background-color: #efefef;
+}
+
 /* セクションのヘッダー */
 .section__header {
-  padding: 10px;
+  padding: 30px 0 15px 0;
   background-color: #ffffff;
 }
 
@@ -120,6 +126,7 @@ header {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
+  padding: 0 10px;
 }
 
 .section__header__scrollable > ul {
@@ -145,14 +152,14 @@ header {
 /* セクションのアイテム一覧 */
 
 .section__body {
-  background-color: #f5f5f5;
+  /* background-color: #efefef; */
   padding: 10px;
 }
 
 .section__body__header {
   display: flex;
   justify-content: space-between;
-  padding: 15px 0;
+  padding: 15px;
 }
 
 .section__body__header--title {
@@ -186,14 +193,22 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-auto-rows: minmax(200px, auto);
-  grid-gap: 1em;
+  grid-gap: 5px;
 }
 
 .section__body__items--item {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.item__img > img {
-  object-fit: cover;
-  height: 100%;
+.section__body__items--item > img.image {
   width: 100%;
+  height: auto;
+}
+
+.section__body__items--item > div.text {
+  padding: 5px;
+}
+
+.section__body__items--item > div.text p {
+  font-size: 14px;
 }
