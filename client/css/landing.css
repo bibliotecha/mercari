@@ -102,7 +102,7 @@ header {
 
 /* セクションのヘッダー */
 .section__header {
-  padding: 10px 20px;
+  padding: 10px;
   background-color: #ffffff;
 }
 
@@ -138,7 +138,6 @@ header {
 }
 
 .section__header__scrollable--item > p {
-  margin: 0;
   font-size: 14px;
   font-weight: bold;
 }
@@ -147,4 +146,38 @@ header {
 
 .section__body {
   background-color: #f5f5f5;
+  padding: 10px;
 }
+
+.section__body__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.section__body__header--title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.section__body__header--more {
+  display: flex;
+  align-items: center;
+}
+
+.section__body__header > div:nth-child(2) p {
+  color: #3295ee;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* アイテム一覧 */
+.section__body__items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+}
+/* 
+.section__body__items--item {
+  width: 33%;
+} */
