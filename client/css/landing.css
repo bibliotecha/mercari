@@ -7,7 +7,7 @@ header {
 
 .header__container {
   width: 100%;
-  background-color: blue;
+  padding: 10px;
 }
 
 .header__top {
@@ -15,9 +15,37 @@ header {
   justify-content: space-between;
 }
 
+.header__register {
+  display: flex;
+}
+
+/* 共通項目 */
+.header__register > button {
+  border-radius: 5px;
+  padding: 0 10px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* 新規会員 */
+.header__register > button:nth-child(1) {
+  margin-right: 5px;
+  border: none;
+  background-color: #ea352e;
+  color: white;
+}
+
+/* ログイン */
+.header__register > button:nth-child(2) {
+  background-color: white;
+  color: #3295ee;
+  border: 1px solid #3295ee;
+}
+
 @media (min-width: 767px) {
   .header__container {
     max-width: 700px;
+    padding: 0px;
   }
 }
 
