@@ -100,8 +100,8 @@ header {
   }
 }
 
-/* セクション */
-section {
+/* アイテム一覧セクション */
+section.item__layout {
   padding-bottom: 50px;
   background-color: #efefef;
 }
@@ -281,4 +281,60 @@ footer > div {
 
 .footer__countries > li:nth-child(1) {
   margin-right: 30px;
+}
+
+/* アプリダウンロード */
+section.app__advertisement {
+  display: flex;
+  justify-content: center;
+  background-image: url('../asset/img/mercari_app_background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 15px 0;
+}
+
+.app__advertisement--icon {
+  margin-right: 20px;
+}
+
+.app__advertisement--icon > img {
+  width: 50px;
+}
+
+.app__advertisement--text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app__advertisement--text p {
+  color: white;
+}
+
+.app__advertisement--text > div:nth-child(1) p {
+  font-weight: 600;
+}
+
+.app__advertisement--text > div:nth-child(2) p {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+/* フッターロゴ */
+.footer__logo {
+  align-items: center;
+}
+
+.footer__logo--svg {
+  margin-right: 10px;
+}
+
+.footer__logo--svg > svg {
+  width: 130px;
+}
+
+.footer__logo--text > p {
+  color: white;
+  font-size: 13px;
 }
