@@ -1,9 +1,12 @@
 /* ヘッダー */
 header {
   display: flex;
+  background-color: white;
   justify-content: center;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 2px;
+  position: sticky;
+  top: 0;
 }
 
 .header__container {
