@@ -165,19 +165,35 @@ header {
   align-items: center;
 }
 
-.section__body__header > div:nth-child(2) p {
+.section__body__header--more > div.more__text {
+  margin-right: 5px;
+}
+
+.section__body__header--more > div.more__text p {
   color: #3295ee;
   font-size: 15px;
   font-weight: 500;
 }
 
+.section__body__header--more > div.more__arrow svg {
+  width: 10px;
+  height: 10px;
+}
+
 /* アイテム一覧 */
 .section__body__items {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: minmax(200px, auto);
+  grid-gap: 1em;
 }
-/* 
+
 .section__body__items--item {
-  width: 33%;
-} */
+}
+
+.item__img > img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
