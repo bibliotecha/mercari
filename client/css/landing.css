@@ -3,6 +3,7 @@ header {
   display: flex;
   justify-content: center;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2px;
 }
 
 .header__container {
@@ -97,4 +98,53 @@ header {
   .header__container {
     max-width: 1020px;
   }
+}
+
+/* セクションのヘッダー */
+.section__header {
+  padding: 10px 20px;
+  background-color: #ffffff;
+}
+
+.section__header--title {
+  display: flex;
+  justify-content: center;
+}
+
+.section__header--title > p {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.section__header__scrollable {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.section__header__scrollable > ul {
+  padding: 0;
+}
+
+.section__header__scrollable--item {
+  display: inline-block;
+  padding: 7px 15px;
+  background-color: #efefef;
+  border-radius: 20px;
+}
+
+.section__header__scrollable--item:not(:nth-child(1)) {
+  margin-left: 10px;
+}
+
+.section__header__scrollable--item > p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* セクションのアイテム一覧 */
+
+.section__body {
+  background-color: #f5f5f5;
 }
