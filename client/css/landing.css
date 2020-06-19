@@ -42,6 +42,50 @@ header {
   border: 1px solid #3295ee;
 }
 
+.header__input {
+  padding: 8px 0;
+}
+
+.header__input > input {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  padding: 12px 0 12px 17px;
+  background-color: #f5f5f5;
+  font-size: 15px;
+}
+
+.header__bottom {
+  display: flex;
+}
+
+.header__search {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+}
+
+.header__search > div {
+  display: flex;
+  align-items: center;
+}
+
+.header__search--icon {
+  margin-right: 10px;
+}
+
+.header__search--text {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 3px 0;
+}
+
+/* タグのアイコン */
+.header__search--icon > svg {
+  position: relative;
+  top: 1px;
+}
+
 @media (min-width: 767px) {
   .header__container {
     max-width: 700px;
