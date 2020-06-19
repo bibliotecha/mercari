@@ -1,0 +1,28 @@
+/* ヘッダー */
+header {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header__container {
+  width: 100%;
+  background-color: blue;
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 767px) {
+  .header__container {
+    max-width: 700px;
+  }
+}
+
+@media (min-width: 1067px) {
+  .header__container {
+    max-width: 1020px;
+  }
+}

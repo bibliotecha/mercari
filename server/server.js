@@ -18,13 +18,13 @@ const app = express();
 const PORT = 3000;
 
 // styles.cssを取り込む
-app.use(express.static(path.join(__dirname, '../client/public')));
+app.use(express.static(path.join(__dirname, '../client')));
 
 // 'localhost:3000 + '/'と入力する中の関数を呼ぶ
 app.get('/', (req, res) => {
   // 一つ親の階層の'client'というフォルダに入る
   //　index.htmlというファイルがあるのでそれをブラウザに送ってください
-  res.sendFile(path.join(__dirname, '../client', 'index.html'));
+  res.sendFile(path.join(__dirname, '../client', 'landing.html'));
 });
 
 //　3000というポートにリクエストが来たら対応してください
