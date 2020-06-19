@@ -122,29 +122,29 @@ section {
   font-weight: bold;
 }
 
-.section__header__scrollable {
+.section__scrollable {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
   padding: 0 10px;
 }
 
-.section__header__scrollable > ul {
+.section__categories {
   padding: 0;
 }
 
-.section__header__scrollable--item {
+.section__category {
   display: inline-block;
   padding: 7px 15px;
   background-color: #efefef;
   border-radius: 20px;
 }
 
-.section__header__scrollable--item:not(:nth-child(1)) {
+.section__category:not(:nth-child(1)) {
   margin-left: 10px;
 }
 
-.section__header__scrollable--item > p {
+.section__category > p {
   font-size: 14px;
   font-weight: bold;
 }
@@ -188,7 +188,7 @@ section {
 }
 
 /* アイテム一覧 */
-.section__body__items {
+.section__items {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -196,19 +196,89 @@ section {
   grid-gap: 5px;
 }
 
-.section__body__items--item {
+.section__item {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.section__body__items--item > img.image {
+.section__item > img.image {
   width: 100%;
   height: auto;
 }
 
-.section__body__items--item > div.text {
+.section__item > div.text {
   padding: 5px;
 }
 
-.section__body__items--item > div.text p {
+.section__item > div.text p {
   font-size: 14px;
+}
+
+/* フッター */
+
+footer {
+  padding: 15px;
+  background-color: #222222;
+}
+
+footer > div {
+  width: 100%;
+
+  display: flex;
+}
+
+.footer__section {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.footer__title.empty {
+  height: 20px;
+  background-color: transparent;
+}
+
+.footer__title > p {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.footer__items {
+  padding: 0;
+}
+
+.footer__item {
+  color: #c4c4c4;
+  font-size: 14px;
+  list-style: none;
+  margin: 12px 0;
+}
+
+.footer__social-medias {
+  margin-top: 32px;
+  display: flex;
+}
+
+.footer__social-media > svg > path {
+  fill: white;
+}
+
+.twitter {
+  margin-right: 8px;
+}
+
+.twitter > svg {
+  width: 32px;
+}
+
+.facebook > svg {
+  width: 26px;
+}
+
+.footer__countries {
+  display: flex;
+  padding: 0;
+}
+
+.footer__countries > li:nth-child(1) {
+  margin-right: 30px;
 }
