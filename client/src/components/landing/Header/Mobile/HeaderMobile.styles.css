@@ -91,6 +91,10 @@ header {
 }
 
 @media (min-width: 767px) {
+  header.header__mobile {
+    display: none;
+  }
+
   .header__container {
     max-width: 700px;
     padding: 0px;
