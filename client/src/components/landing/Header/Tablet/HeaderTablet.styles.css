@@ -1,0 +1,90 @@
+.header--tablet {
+  display: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.header--tablet > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header__container > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  margin-right: 20px;
+}
+
+.header__input {
+  display: flex;
+  flex-grow: 1;
+}
+
+.header__container > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.header__left {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header__search {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header__right {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 共通項目 */
+.header__register > button {
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+/* 新規会員 */
+.header__register > button:nth-child(1) {
+  margin-right: 5px;
+  border: none;
+  background-color: #ea352e;
+  color: white;
+}
+
+/* ログイン */
+.header__register > button:nth-child(2) {
+  background-color: white;
+  color: #3295ee;
+  border: 1px solid #3295ee;
+}
+
+@media (min-width: 767px) {
+  .header--tablet {
+    display: block;
+  }
+
+  .header__container {
+    max-width: 700px;
+  }
+}
+
+@media (min-width: 1068px) {
+  .header__container {
+    max-width: 1050px;
+  }
+}
