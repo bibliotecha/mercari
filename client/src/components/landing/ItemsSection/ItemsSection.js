@@ -1,6 +1,10 @@
 import React from 'react';
 
-import ItemIcon from '../../assets/img/mercari_item.jpg';
+// Img
+import ItemIcon from '../../../assets/img/mercari_item.jpg';
+
+// Css
+import './ItemsSection.styles.css';
 
 export const Items = () => {
   return (

@@ -1,14 +1,11 @@
 import React from 'react';
 
-// Styles
-import '../styles/landing.css';
-
 // Components
-import { Header } from '../components/landing/Header';
-import { Items } from '../components/landing/Items';
-import { AppAdvertisement } from '../components/landing/AppAdvertisement';
-import { Footer } from '../components/landing/Footer';
-import { FloatButton } from '../components/landing/FloatButton';
+import { Header } from '../components/landing/Header/Header';
+import { Items } from '../components/landing/ItemsSection/ItemsSection';
+import { AppAdvertisement } from '../components/landing/AppAdvertisement/AppAdvertisement';
+import { Footer } from '../components/landing/Footer/Footer';
+import { FloatButton } from '../components/landing/FloatButton/FloatButton';
 
 export default () => {
   return (

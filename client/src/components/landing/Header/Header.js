@@ -1,6 +1,10 @@
 import React from 'react';
 
-import Logo from '../../assets/img/mercari_logo.png';
+// Img
+import Logo from '../../../assets/img/mercari_logo.png';
+
+// CSS
+import './Header.styles.css';
 
 export const Header = () => {
   return (

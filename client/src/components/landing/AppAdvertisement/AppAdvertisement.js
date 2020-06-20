@@ -1,7 +1,10 @@
 import React from 'react';
 
+// Css
+import './AppAdvertisement.styles.css';
+
 // イメージ
-import AppIcon from '../../assets/img/mercari_app_icon.png';
+import AppIcon from '../../../assets/img/mercari_app_icon.png';
 
 export const AppAdvertisement = () => {
   return (
