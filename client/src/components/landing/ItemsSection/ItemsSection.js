@@ -8,41 +8,41 @@ import './ItemsSection.styles.css';
 
 export const Items = () => {
   return (
-    <section class='item__layout'>
-      <div class='section__header'>
-        <div class='section__header--title'>
+    <section className='item__layout'>
+      <div className='section__header'>
+        <div className='section__header--title'>
           <p>人気のカテゴリー</p>
         </div>
-        <div class='section__scrollable'>
-          <ul class='section__categories'>
-            <li class='section__category'>
+        <div className='section__scrollable'>
+          <ul className='section__categories'>
+            <li className='section__category'>
               <p>レディース</p>
             </li>
-            <li class='section__category'>
+            <li className='section__category'>
               <p>メンズ</p>
             </li>
-            <li class='section__category'>
+            <li className='section__category'>
               <p>家電・スマホ・カメラ</p>
             </li>
-            <li class='section__category'>
+            <li className='section__category'>
               <p>おもちゃ・ホビー・グッズ</p>
             </li>
-            <li class='section__category'>
+            <li className='section__category'>
               <p>家電・スマホ・カメラ</p>
             </li>
           </ul>
         </div>
       </div>
-      <div class='section__body'>
-        <div class='section__body__header'>
-          <div class='section__body__header--title'>
+      <div className='section__body'>
+        <div className='section__body__header'>
+          <div className='section__body__header--title'>
             <p>レディース新着アイテム</p>
           </div>
-          <div class='section__body__header--more'>
-            <div class='more__text'>
+          <div className='section__body__header--more'>
+            <div className='more__text'>
               <p>もっと見る</p>
             </div>
-            <div class='more__arrow'>
+            <div className='more__arrow'>
               <svg viewBox='0 0 512.002 512.002'>
                 <g>
                   <g>
@@ -58,58 +58,58 @@ export const Items = () => {
             </div>
           </div>
         </div>
-        <div class='section__items'>
-          <div class='section__item'>
-            <img class='image' src={ItemIcon} alt='item' />
-            <div class='text'>
+        <div className='section__items'>
+          <div className='section__item'>
+            <img className='image' src={ItemIcon} alt='item' />
+            <div className='text'>
               <p>レイバン　ウェイファーラー</p>
             </div>
           </div>
-          <div class='section__item'>
-            <img class='image' src={ItemIcon} alt='item' />
-            <div class='text'>
+          <div className='section__item'>
+            <img className='image' src={ItemIcon} alt='item' />
+            <div className='text'>
               <p>レイバン　ウェイファーラー</p>
             </div>
           </div>
-          <div class='section__item'>
-            <img class='image' src={ItemIcon} alt='item' />
-            <div class='text'>
+          <div className='section__item'>
+            <img className='image' src={ItemIcon} alt='item' />
+            <div className='text'>
               <p>レイバン　ウェイファーラー</p>
             </div>
           </div>
-          <div class='section__item'>
-            <img class='image' src={ItemIcon} alt='item' />
-            <div class='text'>
+          <div className='section__item'>
+            <img className='image' src={ItemIcon} alt='item' />
+            <div className='text'>
               <p>レイバン　ウェイファーラー</p>
             </div>
           </div>
-          <div class='section__item'>
-            <img class='image' src={ItemIcon} alt='item' />
-            <div class='text'>
+          <div className='section__item'>
+            <img className='image' src={ItemIcon} alt='item' />
+            <div className='text'>
               <p>レイバン　ウェイファーラー</p>
             </div>
           </div>
-          <div class='section__item'>
-            <img class='image' src={ItemIcon} alt='item' />
-            <div class='text'>
+          <div className='section__item'>
+            <img className='image' src={ItemIcon} alt='item' />
+            <div className='text'>
               <p>レイバン　ウェイファーラー</p>
             </div>
           </div>
-          <div class='section__item'>
-            <img class='image' src={ItemIcon} alt='item' />
-            <div class='text'>
+          <div className='section__item'>
+            <img className='image' src={ItemIcon} alt='item' />
+            <div className='text'>
               <p>レイバン　ウェイファーラー</p>
             </div>
           </div>
-          <div class='section__item'>
-            <img class='image' src={ItemIcon} alt='item' />
-            <div class='text'>
+          <div className='section__item'>
+            <img className='image' src={ItemIcon} alt='item' />
+            <div className='text'>
               <p>レイバン　ウェイファーラー</p>
             </div>
           </div>
-          <div class='section__item'>
-            <img class='image' src={ItemIcon} alt='item' />
-            <div class='text'>
+          <div className='section__item'>
+            <img className='image' src={ItemIcon} alt='item' />
+            <div className='text'>
               <p>レイバン　ウェイファーラー</p>
             </div>
           </div>

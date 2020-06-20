@@ -9,25 +9,25 @@ import './Header.styles.css';
 export const Header = () => {
   return (
     <header>
-      <div class='header__container'>
-        <div class='header__top'>
-          <div class='header__logo'>
+      <div className='header__container'>
+        <div className='header__top'>
+          <div className='header__logo'>
             <img src={Logo} width='130px' alt='logo' />
           </div>
-          <div class='header__register'>
+          <div className='header__register'>
             <button>新規会員</button>
             <button>ログイン</button>
           </div>
         </div>
-        <div class='header__middle'>
-          <div class='header__input'>
+        <div className='header__middle'>
+          <div className='header__input'>
             <input placeholder='何をお探しですか？' />
           </div>
         </div>
-        <div class='header__bottom'>
-          <div class='header__search'>
+        <div className='header__bottom'>
+          <div className='header__search'>
             <div>
-              <div class='header__search--icon'>
+              <div className='header__search--icon'>
                 <svg width='20' height='16' viewBox='0 0 20 16'>
                   <path
                     fill='rgba(234, 53, 45)'
@@ -35,12 +35,12 @@ export const Header = () => {
                   />
                 </svg>
               </div>
-              <p class='header__search--text'>カテゴリーから探す</p>
+              <p className='header__search--text'>カテゴリーから探す</p>
             </div>
           </div>
-          <div class='header__search'>
+          <div className='header__search'>
             <div>
-              <div class='header__search--icon'>
+              <div className='header__search--icon'>
                 <svg width='23' height='16'>
                   <path
                     fill='rgba(234, 53, 45)'
@@ -48,7 +48,7 @@ export const Header = () => {
                   />
                 </svg>
               </div>
-              <p class='header__search--text'>ブランドから探す</p>
+              <p className='header__search--text'>ブランドから探す</p>
             </div>
           </div>
         </div>
