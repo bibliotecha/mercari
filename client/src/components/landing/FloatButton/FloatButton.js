@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './FloatButton.styles.css';
+
 export const FloatButton = () => {
   return (
     <div className='float__button'>
