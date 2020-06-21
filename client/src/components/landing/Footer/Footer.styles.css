@@ -3,11 +3,16 @@
 footer {
   padding: 15px;
   background-color: #222222;
+  /* display: flex;
+  justify-content: center; */
 }
 
 footer > div {
   width: 100%;
+  /* display: flex; */
+}
 
+.footer__section--row {
   display: flex;
 }
 
@@ -66,4 +71,14 @@ footer > div {
 
 .footer__countries > li:nth-child(1) {
   margin-right: 30px;
+}
+
+@media (min-width: 767px) {
+  /* footer {
+    display: flex;
+    f
+  } */
+  footer > div {
+    max-width: 700px;
+  }
 }
