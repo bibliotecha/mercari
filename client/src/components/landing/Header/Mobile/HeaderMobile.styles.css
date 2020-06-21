@@ -72,6 +72,7 @@
 .header__search > div {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .header__search--icon {
@@ -82,6 +83,7 @@
   font-size: 14px;
   font-weight: 700;
   margin: 3px 0;
+  white-space: nowrap;
 }
 
 /* タグのアイコン */

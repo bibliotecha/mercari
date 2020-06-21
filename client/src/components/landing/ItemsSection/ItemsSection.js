@@ -27,9 +27,6 @@ export const Items = () => {
             <li className='section__category'>
               <p>おもちゃ・ホビー・グッズ</p>
             </li>
-            <li className='section__category'>
-              <p>家電・スマホ・カメラ</p>
-            </li>
           </ul>
         </div>
       </div>

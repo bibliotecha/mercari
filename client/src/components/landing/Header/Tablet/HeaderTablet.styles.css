@@ -29,17 +29,11 @@
 .header__container > div:nth-child(2) {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-top: 10px;
 }
 
 .header__left {
-  width: 50%;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.header__search {
-  width: 50%;
   display: flex;
   justify-content: flex-start;
 }
@@ -80,6 +74,13 @@
 
   .header__container {
     max-width: 700px;
+  }
+
+  .header__search {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 15px;
   }
 }
 
