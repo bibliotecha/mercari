@@ -110,6 +110,12 @@ export const Items = () => {
               <p>レイバン　ウェイファーラー</p>
             </div>
           </div>
+          <div className='section__item tablet'>
+            <img className='image' src={ItemIcon} alt='item' />
+            <div className='text'>
+              <p>レイバン　ウェイファーラー</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

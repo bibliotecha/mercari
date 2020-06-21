@@ -2,10 +2,14 @@
 section.item__layout {
   padding-bottom: 50px;
   background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* セクションのヘッダー */
 .section__header {
+  width: 100%;
   padding: 33px 0 4px 0;
   background-color: #ffffff;
 }
@@ -56,12 +60,13 @@ section.item__layout {
 .section__body {
   /* background-color: #efefef; */
   padding: 10px;
+  width: 100%;
 }
 
 .section__body__header {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
+  padding: 15px 0;
 }
 
 .section__body__header--title {
@@ -93,7 +98,7 @@ section.item__layout {
 .section__items {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(200px, auto);
   grid-gap: 5px;
 }
@@ -115,6 +120,11 @@ section.item__layout {
   font-size: 14px;
 }
 
+/* 表示の有無 */
+.tablet {
+  display: none;
+}
+
 @media (min-width: 767px) {
   .section__header {
     padding: 50px 0 15px 0;
@@ -122,21 +132,45 @@ section.item__layout {
     flex-direction: column;
     align-items: center;
   }
+
   .section__header > div:nth-child(2) {
     width: 100%;
-    /* display: flex;
-    justify-content: center; */
     text-align: center;
   }
   .section__header--title p {
     font-size: 28px;
   }
-  .section__scrollable {
-    /* max-width: 600px;
-    background-color: red; */
+  .section__body {
+    max-width: 700px;
+  }
+
+  .section__body__header {
+    padding-top: 35px;
+  }
+
+  .section__body__header--title {
+    font-size: 22px;
   }
 
   .section__categories {
     width: 100%;
+  }
+
+  .section__items {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(1px, auto);
+    grid-gap: 20px;
+  }
+
+  .tablet {
+    display: block;
+  }
+}
+
+@media (min-width: 1068px) {
+  .section__body {
+    max-width: 1000px;
   }
 }
