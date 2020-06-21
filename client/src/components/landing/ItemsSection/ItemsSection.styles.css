@@ -26,9 +26,12 @@ section.item__layout {
 
 .section__scrollable {
   display: flex;
+  text-align: center;
   overflow-x: auto;
   white-space: nowrap;
   padding: 0 10px;
+  /* justify-content: center; */
+  width: 100%;
 }
 
 .section__categories {
@@ -125,6 +128,12 @@ section.item__layout {
   display: none;
 }
 
+@media (min-width: 599px) {
+  .section__scrollable {
+    justify-content: center;
+  }
+}
+
 @media (min-width: 767px) {
   .section__header {
     padding: 50px 0 15px 0;
@@ -135,7 +144,6 @@ section.item__layout {
 
   .section__header > div:nth-child(2) {
     width: 100%;
-    text-align: center;
   }
   .section__header--title p {
     font-size: 28px;
