@@ -1,12 +1,14 @@
 const mysql = require('mysql');
 const { seedItems } = require('./seed');
 
+const config = require('../config');
+
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  database: 'mercari',
-  post: 3307,
+  host: config.host,
+  user: config.user,
+  password: config.password,
+  database: config.db,
+  post: config.port,
 });
 
 db.connect((err) => {
