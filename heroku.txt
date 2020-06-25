@@ -1,0 +1,10 @@
+Herokuの実装
+
+herokuでアカウント作成
+
+heroku login
+
+git subtree push --prefix path/to/subdirectory heroku master
+
+Account Settings -> Billing Tab
+Add billing information
