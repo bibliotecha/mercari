@@ -1,7 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql');
-const connection = mysql.createConnection({
+const { seedItems } = require('./database/seed');
+
+const db = mysql.createConnection({
   host: 'localhost',
   user: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
@@ -9,12 +11,27 @@ const connection = mysql.createConnection({
   post: 3307,
 });
 
-connection.connect((err) => {
+db.connect((err) => {
   if (err) {
     console.error(`error connectin: ${err.stack}`);
   }
 
-  console.log(`connected as id ${connection.threadId}`);
+  console.log(`connected as id ${db.threadId}`);
+
+  let dropTable = 'DROP TABLE items';
+  db.query(dropTable, (err, result) => {
+    if (err) throw err;
+    console.log('dropped table');
+  });
+
+  let createTables =
+    'CREATE TABLE items (id SERIAL PRIMARY KEY, name VARCHAR(255), description VARCHAR(255))';
+  db.query(createTables, (err, result) => {
+    if (err) throw err;
+    console.log('created table');
+  });
+
+  seedItems(db);
 });
 
 /**
@@ -25,7 +42,7 @@ const app = express();
 /**
  * 使えるポートを確保
  */
-const PORT = 3000;
+const PORT = 4000;
 
 //　3000というポートにリクエストが来たら対応してください
 app.listen(PORT, () => {
