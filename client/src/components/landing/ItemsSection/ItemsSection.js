@@ -70,7 +70,17 @@ export const Items = () => {
         </div>
         <div className='section__items'>
           {items &&
-            items.map((item) => {
+            items.map((item, index) => {
+              if (index === 9) {
+                return (
+                  <div className='section__item tablet'>
+                    <img className='image' src={item.url} alt='item' />
+                    <div className='text'>
+                      <p>{item.name}</p>
+                    </div>
+                  </div>
+                );
+              }
               return (
                 <div className='section__item'>
                   <img className='image' src={item.url} alt='item' />
@@ -80,60 +90,6 @@ export const Items = () => {
                 </div>
               );
             })}
-          {/* <div className='section__item'>
-            <img className='image' src={ItemIcon} alt='item' />
-            <div className='text'>
-              <p>レイバン　ウェイファーラー</p>
-            </div>
-          </div>
-          <div className='section__item'>
-            <img className='image' src={ItemIcon} alt='item' />
-            <div className='text'>
-              <p>レイバン　ウェイファーラー</p>
-            </div>
-          </div>
-          <div className='section__item'>
-            <img className='image' src={ItemIcon} alt='item' />
-            <div className='text'>
-              <p>レイバン　ウェイファーラー</p>
-            </div>
-          </div>
-          <div className='section__item'>
-            <img className='image' src={ItemIcon} alt='item' />
-            <div className='text'>
-              <p>レイバン　ウェイファーラー</p>
-            </div>
-          </div>
-          <div className='section__item'>
-            <img className='image' src={ItemIcon} alt='item' />
-            <div className='text'>
-              <p>レイバン　ウェイファーラー</p>
-            </div>
-          </div>
-          <div className='section__item'>
-            <img className='image' src={ItemIcon} alt='item' />
-            <div className='text'>
-              <p>レイバン　ウェイファーラー</p>
-            </div>
-          </div>
-          <div className='section__item'>
-            <img className='image' src={ItemIcon} alt='item' />
-            <div className='text'>
-              <p>レイバン　ウェイファーラー</p>
-            </div>
-          </div>
-          <div className='section__item'>
-            <img className='image' src={ItemIcon} alt='item' />
-            <div className='text'>
-              <p>レイバン　ウェイファーラー</p>
-            </div>
-          </div>
-          <div className='section__item tablet'>
-            <img className='image' src={ItemIcon} alt='item' />
-            <div className='text'>
-              <p>レイバン　ウェイファーラー</p>
-            </div>
-          </div> */}
         </div>
       </div>
     </section>
