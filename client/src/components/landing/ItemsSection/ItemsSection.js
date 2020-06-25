@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import config from '../../../config';
 // Css
 import './ItemsSection.styles.css';
 
@@ -8,7 +8,7 @@ export const Items = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch(process.env.REACT_APP_API_URL, {
+        const res = await fetch(config.api_url, {
           method: 'GET',
           headers: {
             'Access-Control-Allow-Origin': '*',
