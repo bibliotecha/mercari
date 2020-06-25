@@ -23,7 +23,7 @@ db.connect((err) => {
   });
 
   let createTables =
-    'CREATE TABLE items (id SERIAL PRIMARY KEY, name VARCHAR(255), description VARCHAR(255))';
+    'CREATE TABLE items (id SERIAL PRIMARY KEY, name VARCHAR(255), url VARCHAR(255), description VARCHAR(255))';
   db.query(createTables, (err, result) => {
     if (err) throw err;
     console.log('created table');
