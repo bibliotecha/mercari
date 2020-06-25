@@ -55,7 +55,6 @@ const seedItems = (db) => {
         if (err) throw err;
       }
     );
-    console.log('done');
   }
   console.log('done seeding');
 };

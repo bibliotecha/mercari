@@ -44,6 +44,13 @@ const app = express();
  */
 const PORT = 4000;
 
+app.get('/', (req, res) => {
+  db.query('select * from items', (err, result) => {
+    if (err) throw err;
+    res.status(200).json(result);
+  });
+});
+
 //　3000というポートにリクエストが来たら対応してください
 app.listen(PORT, () => {
   // ``で囲むことにより変数を入れられる
