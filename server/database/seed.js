@@ -1,5 +1,5 @@
 const db = require('./db');
-
+const pool = require('../database/db');
 const items = [
   {
     name: '服',
@@ -52,7 +52,7 @@ const items = [
   {
     name: '服',
     url:
-      'https://images.unsplash.com/photo-1559594323-ddf28daef0c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=838&q=80',
+      'https://images.unsplash.com/photo-1510872893374-80379d91fc92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
     description: '服９',
   },
   {
@@ -64,16 +64,20 @@ const items = [
 ];
 
 const seedItems = () => {
-  for (let i = 0; i < items.length; i++) {
-    db.query(
-      `INSERT INTO items (name, url, description) VALUES (?, ?, ?)`,
-      [items[i].name, items[i].url, items[i].description],
-      (err, result) => {
-        if (err) throw err;
-      }
-    );
-  }
-  console.log('done seeding');
+  pool.getConnection((err, connection) => {
+    if (err) throw err;
+    for (let i = 0; i < items.length; i++) {
+      connection.query(
+        `INSERT INTO items (name, url, description) VALUES (?, ?, ?)`,
+        [items[i].name, items[i].url, items[i].description],
+        (err, result) => {
+          if (err) throw err;
+        }
+      );
+    }
+    res.status(200).json('無事にサンプルデータを入力できました');
+    connection.release();
+  });
 };
 
 module.exports = {
