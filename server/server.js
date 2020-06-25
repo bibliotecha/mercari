@@ -12,7 +12,7 @@ const app = express();
 /**
  * 使えるポートを確保
  */
-const PORT = 4000;
+const PORT = process.env.PORT | 4000;
 
 app.use(cors());
 
