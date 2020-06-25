@@ -43,6 +43,7 @@ router.get('/createtable', (req, res) => {
 
 router.get('/seed', (req, res) => {
   seedItems();
+  res.status(200).json('無事にサンプルデータを入力しました');
 });
 
 module.exports = router;

@@ -75,7 +75,6 @@ const seedItems = () => {
         }
       );
     }
-    res.status(200).json('無事にサンプルデータを入力できました');
     connection.release();
   });
 };
