@@ -11,8 +11,8 @@ const cors = require('cors');
 const app = express();
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://mercariapp.netlify.app/');
-  res.header(
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
   );
