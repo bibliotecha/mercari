@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// Img
-import ItemIcon from '../../../assets/img/mercari_item.jpg';
-
 // Css
 import './ItemsSection.styles.css';
 
