@@ -9,7 +9,15 @@ export const Items = () => {
     async function fetchData() {
       try {
         const res = await fetch(
-          'https://mercari-app-lesson.herokuapp.com/api/'
+          'https://mercari-app-lesson.herokuapp.com/api',
+          {
+            method: 'GET',
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Credentials': true,
+              'Access-Control-Allow-Methods': 'POST, GET',
+            },
+          }
         );
         const resJson = await res.json();
         setItems(resJson);
