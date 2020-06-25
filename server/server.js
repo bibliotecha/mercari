@@ -15,6 +15,10 @@ app.use(express.json());
 app.use(cors());
 app.options('*', cors());
 
+app.get('/', (req, res) => {
+  return res.status(200).send('hello world!');
+});
+
 app.use('/api', apiRouter);
 
 //　3000というポートにリクエストが来たら対応してください
