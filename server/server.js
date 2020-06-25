@@ -17,5 +17,5 @@ app.use('/api', apiRouter);
 //　3000というポートにリクエストが来たら対応してください
 app.listen(config.port, () => {
   // ``で囲むことにより変数を入れられる
-  console.log(`server is listening on port ${PORT}`);
+  console.log(`server is listening on port ${config.port}`);
 });
