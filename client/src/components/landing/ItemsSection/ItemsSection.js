@@ -7,6 +7,21 @@ import ItemIcon from '../../../assets/img/mercari_item.jpg';
 import './ItemsSection.styles.css';
 
 export const Items = () => {
+  const [data, setData] = useState();
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch('https://localhost:4000/api');
+        const resJson = res.json();
+        setData(resJson);
+      } catch (err) {
+        throw err;
+      }
+    }
+  }, []);
+
+  console.log('retrieved data testing', data);
+
   return (
     <section className='item__layout'>
       <div className='section__header'>
