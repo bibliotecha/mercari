@@ -1,3 +1,5 @@
+const db = require('./db');
+
 const items = [
   {
     name: '服',
@@ -61,7 +63,7 @@ const items = [
   },
 ];
 
-const seedItems = (db) => {
+const seedItems = () => {
   for (let i = 0; i < items.length; i++) {
     db.query(
       `INSERT INTO items (name, url, description) VALUES (?, ?, ?)`,

@@ -8,3 +8,8 @@ git subtree push --prefix path/to/subdirectory heroku master
 
 Account Settings -> Billing Tab
 Add billing information
+
+configure add-ons
+ClearDB MySql
+
+heroku config | grep CLEARDB
