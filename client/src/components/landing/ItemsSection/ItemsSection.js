@@ -11,7 +11,9 @@ export const Items = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch('http://localhost:4000/api');
+        const res = await fetch(
+          'https://mercari-app-lesson.herokuapp.com/api/'
+        );
         const resJson = await res.json();
         setItems(resJson);
       } catch (err) {
