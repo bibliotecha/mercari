@@ -87,7 +87,7 @@ export const Items = () => {
                 );
               }
               return (
-                <div className='section__item'>
+                <div key={index} className='section__item'>
                   <img className='image' src={item.url} alt='item' />
                   <div className='text'>
                     <p>{item.name}</p>
