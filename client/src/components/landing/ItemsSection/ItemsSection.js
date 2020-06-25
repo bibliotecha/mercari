@@ -8,17 +8,14 @@ export const Items = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch(
-          'https://mercari-app-lesson.herokuapp.com/api',
-          {
-            method: 'GET',
-            headers: {
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Credentials': true,
-              'Access-Control-Allow-Methods': 'POST, GET',
-            },
-          }
-        );
+        const res = await fetch(process.env.REACT_APP_API_URL, {
+          method: 'GET',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Methods': 'POST, GET',
+          },
+        });
         const resJson = await res.json();
         setItems(resJson);
       } catch (err) {
@@ -81,7 +78,7 @@ export const Items = () => {
             items.map((item, index) => {
               if (index === 9) {
                 return (
-                  <div className='section__item tablet'>
+                  <div key={index} className='section__item tablet'>
                     <img className='image' src={item.url} alt='item' />
                     <div className='text'>
                       <p>{item.name}</p>
