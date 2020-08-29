@@ -130,6 +130,7 @@
   display: flex;
   width: 50%;
   justify-content: center;
+  align-items: center;
 }
 
 .header__search > div {
@@ -146,9 +147,11 @@
 }
 
 /* タグのアイコン */
-.header__search-icon > svg {
-  position: relative;
-  top: 1px;
+.header__search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
 }
 
 @media (min-width: 767px) {
