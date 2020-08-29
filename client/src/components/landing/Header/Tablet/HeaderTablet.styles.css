@@ -45,7 +45,7 @@
 }
 
 /* 共通項目 */
-.header__register > button {
+.header__buttons > button {
   border-radius: 5px;
   padding: 8px 10px;
   font-weight: 400;
@@ -53,7 +53,7 @@
 }
 
 /* 新規会員 */
-.header__register > button:nth-child(1) {
+.header__buttons > button:nth-child(1) {
   margin-right: 5px;
   border: none;
   background-color: #ea352e;
@@ -61,7 +61,7 @@
 }
 
 /* ログイン */
-.header__register > button:nth-child(2) {
+.header__buttons > button:nth-child(2) {
   background-color: white;
   color: #3295ee;
   border: 1px solid #3295ee;
