@@ -23,7 +23,7 @@ export const HeaderTablet = () => {
             <div className='header__left'>
               <div className='header__search'>
                 <div>
-                  <div className='header__search--icon'>
+                  <div className='header__search-icon'>
                     <svg width='20' height='16' viewBox='0 0 20 16'>
                       <path
                         fill='rgba(234, 53, 45)'
@@ -31,12 +31,12 @@ export const HeaderTablet = () => {
                       />
                     </svg>
                   </div>
-                  <p className='header__search--text'>カテゴリーから探す</p>
+                  <p className='header__search-text'>カテゴリーから探す</p>
                 </div>
               </div>
               <div className='header__search'>
                 <div>
-                  <div className='header__search--icon'>
+                  <div className='header__search-icon'>
                     <svg width='23' height='16'>
                       <path
                         fill='rgba(234, 53, 45)'
@@ -44,18 +44,18 @@ export const HeaderTablet = () => {
                       />
                     </svg>
                   </div>
-                  <p className='header__search--text'>ブランドから探す</p>
+                  <p className='header__search-text'>ブランドから探す</p>
                 </div>
               </div>
             </div>
             <div className='header__right'>
-              <div className='header__register'>
+              <div className='header__buttons'>
                 <button>新規会員登録</button>
                 <button>ログイン</button>
               </div>
             </div>
           </div>
-          <div className='header__register'></div>
+          <div className='header__buttons'></div>
         </div>
       </div>
     </header>

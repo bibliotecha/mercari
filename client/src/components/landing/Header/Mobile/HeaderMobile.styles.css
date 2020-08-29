@@ -9,7 +9,7 @@
   top: 0;
 }
 
-.header__container {
+.header__inner--mobile {
   width: 100%;
   padding: 10px;
 }
@@ -19,38 +19,42 @@
   justify-content: space-between;
 }
 
-.header__register {
+.header__buttons {
   display: flex;
 }
 
 /* 共通項目 */
-.header__register > button {
-  border-radius: 5px;
-  padding: 0 10px;
-  font-weight: 600;
+.header__buttons button {
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-weight: 400;
   font-size: 15px;
 }
 
 /* 新規会員 */
-.header__register > button:nth-child(1) {
+.header__button--register {
   margin-right: 5px;
-  border: none;
-  background-color: #ea352e;
-  color: white;
 }
 
-/* ログイン */
-.header__register > button:nth-child(2) {
+.header__button--register > button {
+  background-color: #ea352e;
+  color: white;
+  border: 1px solid transparent;
+}
+
+.header__button--login > button {
   background-color: white;
   color: #3295ee;
   border: 1px solid #3295ee;
 }
 
-.header__input {
+/* ログイン */
+
+.header__input-text {
   padding: 8px 0;
 }
 
-.header__input > input {
+.header__input-text > input {
   width: 100%;
   border-radius: 5px;
   border: 1px solid #cccccc;
@@ -59,7 +63,7 @@
   font-size: 15px;
 }
 
-.header__bottom {
+.header__bottom---mobile {
   display: flex;
 }
 
@@ -75,11 +79,11 @@
   justify-content: center;
 }
 
-.header__search--icon {
+.header__search-icon {
   margin-right: 10px;
 }
 
-.header__search--text {
+.header__search-text {
   font-size: 14px;
   font-weight: 700;
   margin: 3px 0;
@@ -87,7 +91,7 @@
 }
 
 /* タグのアイコン */
-.header__search--icon > svg {
+.header__search-icon > svg {
   position: relative;
   top: 1px;
 }
