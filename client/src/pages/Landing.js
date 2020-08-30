@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Header } from '../components/Landing/Header/Header';
-import { BannerSection } from '../components/Landing/BannerSection';
+// import { BannerSection } from '../components/Landing/BannerSection';
 import { Items } from '../components/Landing/ItemsSection';
 import { AppAdvertisement } from '../components/Landing/AppAdvertisement';
 import { Footer } from '../components/Landing/Footer';
@@ -11,12 +11,11 @@ export default () => {
   return (
     <>
       <Header />
-      <BannerSection />
+      {/* <BannerSection /> */}
       <Items />
       <AppAdvertisement />
       <Footer />
       <FloatButton />
-      <div>test</div>
     </>
   );
 };
