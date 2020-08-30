@@ -16,6 +16,7 @@ export default () => {
       <AppAdvertisement />
       <Footer />
       <FloatButton />
+      <div>test</div>
     </>
   );
 };
