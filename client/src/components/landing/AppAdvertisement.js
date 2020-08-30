@@ -1,9 +1,9 @@
 import React from 'react';
 import './AppAdvertisement.styles.css';
-import AppIcon from '../../../assets/img/app_icon.png';
-import { AppStore } from '../../../assets/svg';
-import GooglePlay from '../../../assets/img/google-play-badge.png';
-import AD_PHONES from '../../../assets/img/ad_phones.png';
+import AppIcon from '../../assets/img/app_icon.png';
+import { AppStore } from '../../assets/svg';
+import GooglePlay from '../../assets/img/google-play-badge.png';
+import AD_PHONES from '../../assets/img/ad_phones.png';
 
 export const AppAdvertisement = () => {
   return (

@@ -1,16 +1,17 @@
 import React from 'react';
 
-// Components
-import { Header } from '../components/landing/Header/Header';
-import { Items } from '../components/landing/ItemsSection/ItemsSection';
-import { AppAdvertisement } from '../components/landing/AppAdvertisement/AppAdvertisement';
-import { Footer } from '../components/landing/Footer/Footer';
-import { FloatButton } from '../components/landing/FloatButton/FloatButton';
+import { Header } from '../components/Landing/Header/Header';
+import { BannerSection } from '../components/Landing/BannerSection';
+import { Items } from '../components/Landing/ItemsSection';
+import { AppAdvertisement } from '../components/Landing/AppAdvertisement';
+import { Footer } from '../components/Landing/Footer';
+import { FloatButton } from '../components/Landing/FloatButton';
 
 export default () => {
   return (
     <>
       <Header />
+      <BannerSection />
       <Items />
       <AppAdvertisement />
       <Footer />
