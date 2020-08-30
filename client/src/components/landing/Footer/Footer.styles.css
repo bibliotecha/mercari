@@ -1,17 +1,17 @@
 /* フッター */
 
-footer {
+.footer {
   padding: 15px;
   background-color: #222222;
   display: flex;
   justify-content: center;
 }
 
-footer > div {
+.footer__inner {
   width: 100%;
 }
 
-.footer__section--row {
+.footer__section-row {
   display: flex;
 }
 
@@ -83,7 +83,7 @@ footer > div {
 }
 
 @media (min-width: 1068px) {
-  footer > div {
+  .footer__inner {
     max-width: 1000px;
   }
 
