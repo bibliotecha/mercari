@@ -14,7 +14,7 @@
   padding: 10px;
 }
 
-.header__top {
+.header__top--mobile {
   display: flex;
   justify-content: space-between;
 }
@@ -67,18 +67,27 @@
 
 /* ログイン */
 
-.header__input:focus {
-  outline: none;
-}
-
-.header__input-text {
-  flex-grow: 1;
+.header__input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+  background-color: rgb(245, 245, 245);
+  line-height: 1.4em;
+  position: relative;
   width: 100%;
-  height: 100%;
-  border-radius: inherit;
+  height: 40px;
+
+  border-radius: 4px;
+  transition: all 0.3s ease-out 0s;
+  padding: 0;
 }
 
-.header__input-text input {
+/* .header__input:focus-within {
+  border: none;
+} */
+
+.header__input input {
   border: 1px;
   background-color: rgb(245, 245, 245);
   font-size: 16px;
@@ -91,27 +100,20 @@
   border-image: initial;
   border-radius: inherit;
   transition: all 0.3s ease-out 0s;
+  border: 1px solid rgb(204, 204, 204);
   padding-left: 10px; /* ken */
   outline: none; /* ken */
-  border: 1px solid rgb(204, 204, 204);
 }
 
-.header__input-text input:focus {
+.header__input input:focus {
   border: 1px solid rgb(0, 149, 238);
-  /* border-right: none; */
   transition: 0.5s;
 }
 
-.header__input-icon {
-  display: block;
-  justify-content: flex-end;
-}
-
-.header__input-icon:hover {
-  cursor: pointer;
-}
-
-.header__input-icon button {
+.header__input button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   height: 40px;
   position: absolute;
@@ -120,6 +122,10 @@
   width: 40px;
   border-width: initial;
   border-style: none;
+}
+
+.header__input button:hover {
+  cursor: pointer;
 }
 
 .header__bottom---mobile {
