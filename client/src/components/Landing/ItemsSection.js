@@ -72,7 +72,7 @@ export const Items = () => {
                 if (index === 9) {
                   return (
                     <li>
-                      <a href='#'>
+                      <a href='http://www.google.com'>
                         <div class='card card-none'>
                           <div class='card__preview'>
                             <div class='card__preview--price'>
@@ -106,7 +106,7 @@ export const Items = () => {
                 } else {
                   return (
                     <li key={index}>
-                      <a href='#'>
+                      <a href='http://www.google.com'>
                         <div class='card'>
                           <div class='card__preview'>
                             <div class='card__preview--price'>
