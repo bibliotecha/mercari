@@ -1,43 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import config from '../../config';
-// Css
 import './ItemsSection.styles.css';
-import item from '../../assets/img/mercari_item.jpg';
 import { Heart } from '../../assets/svg';
 
 export const Items = () => {
-  // const [items, setItems] = useState();
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const res = await fetch(config.api_url, {
-  //         method: 'GET',
-  //         headers: {
-  //           'Access-Control-Allow-Origin': '*',
-  //           'Access-Control-Allow-Credentials': true,
-  //           'Access-Control-Allow-Methods': 'POST, GET',
-  //         },
-  //       });
-  //       const resJson = await res.json();
-  //       setItems(resJson);
-  //     } catch (err) {
-  //       throw err;
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
-  const items = [
-    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
-    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
-    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
-    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
-    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
-    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
-    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
-    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
-    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
-    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
-  ];
+  const [items, setItems] = useState();
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch(config.api_url, {
+          method: 'GET',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Methods': 'POST, GET',
+          },
+        });
+        const resJson = await res.json();
+        setItems(resJson);
+      } catch (err) {
+        throw err;
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
     <section class='items-section'>
@@ -119,7 +105,7 @@ export const Items = () => {
                   );
                 } else {
                   return (
-                    <li>
+                    <li key={index}>
                       <a href='#'>
                         <div class='card'>
                           <div class='card__preview'>
@@ -133,7 +119,7 @@ export const Items = () => {
 
                           <div class='card__caption'>
                             <div class='card__caption-description'>
-                              <span>{item.name}</span>
+                              <span>{item.description}</span>
                               <div class='card__caption-likes'>
                                 <div class='card__like-icon'>
                                   <Heart />
