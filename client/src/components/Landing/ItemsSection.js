@@ -79,7 +79,7 @@ export const Items = () => {
       );
     } else {
       return (
-        <li key={index}>
+        <li key={item.id}>
           <a href='http://www.google.com'>
             <div class='card'>
               <div class='card__preview'>
