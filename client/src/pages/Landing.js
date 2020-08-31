@@ -12,7 +12,7 @@ export default () => {
     <>
       <Header />
       <BannerSection />
-      <Items />
+      {/* <Items /> */}
       <AppAdvertisement />
       <Footer />
       <FloatButton />
