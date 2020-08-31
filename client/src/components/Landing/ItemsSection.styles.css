@@ -100,9 +100,8 @@
 .items-section__product--container ul {
   display: grid;
   justify-content: center;
-  grid-template-rows: repeat(3, calc(width * 0.33));
   grid-template-columns: repeat(3, minmax(70px, 1fr));
-  gap: 5px;
+  grid-gap: 5px;
   list-style: none;
   padding: 0;
 }

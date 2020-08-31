@@ -5,9 +5,8 @@
 @media (min-width: 767px) {
   .header--tablet {
     display: block;
+    position: relative;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-    position: sticky;
-    top: 0;
     background-color: white;
     margin: 0 auto;
     z-index: 9999;

@@ -47,20 +47,20 @@ export const Items = () => {
         </div>
         <ul class='items-section__categories'>
           <li>
-            <a>レディース</a>
+            <a href='#ladies'>レディース</a>
           </li>
           <li>
-            <a>メンズ</a>
+            <a href='#mens'>メンズ</a>
           </li>
           <li>
-            <a>家電・スマホ・カメラ</a>
+            <a href='#electronics'>家電・スマホ・カメラ</a>
           </li>
           <li>
-            <a>おもちゃ・ホビー・グッズ</a>
+            <a href='#toys'>おもちゃ・ホビー・グッズ</a>
           </li>
         </ul>
       </div>
-      <div class='items-section__bottom'>
+      <div id='ladies' class='items-section__bottom'>
         <div class='items-section__bottom-inner'>
           <div class='items-section__product--title'>
             <div class='items-section__category--text'>
