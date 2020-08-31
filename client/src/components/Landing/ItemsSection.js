@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import config from '../../config';
+import React from 'react';
+// import { useState, useEffect } from 'react';
+// import config from '../../config';
 import './ItemsSection.styles.css';
-import { Heart } from '../../assets/svg';
+// import { Heart } from '../../assets/svg';
 
 export const Items = () => {
   // const [items, setItems] = useState();
