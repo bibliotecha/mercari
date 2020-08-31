@@ -1,7 +1,6 @@
 import React from 'react';
 // import { useState, useEffect } from 'react';
 // import config from '../../config';
-import itemImg from '../../assets/img/mercari_item.jpg';
 import './ItemsSection.styles.css';
 import { Heart } from '../../assets/svg';
 import { tempItems } from '../../data/items';
