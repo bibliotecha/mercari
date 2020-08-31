@@ -4,26 +4,26 @@ import './ItemsSection.styles.css';
 import { Heart } from '../../assets/svg';
 
 export const Items = () => {
-  const [items, setItems] = useState();
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await fetch(config.api_url, {
-          method: 'GET',
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true,
-            'Access-Control-Allow-Methods': 'POST, GET',
-          },
-        });
-        const resJson = await res.json();
-        setItems(resJson);
-      } catch (err) {
-        throw err;
-      }
-    }
-    fetchData();
-  }, []);
+  // const [items, setItems] = useState();
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const res = await fetch(config.api_url, {
+  //         method: 'GET',
+  //         headers: {
+  //           'Access-Control-Allow-Origin': '*',
+  //           'Access-Control-Allow-Credentials': true,
+  //           'Access-Control-Allow-Methods': 'POST, GET',
+  //         },
+  //       });
+  //       const resJson = await res.json();
+  //       setItems(resJson);
+  //     } catch (err) {
+  //       throw err;
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
 
   return (
     <section class='items-section'>
@@ -66,7 +66,7 @@ export const Items = () => {
               </svg>
             </div>
           </div>
-          <div class='items-section__product--container'>
+          {/* <div class='items-section__product--container'>
             <ul>
               {items.map((item, index) => {
                 if (index === 9) {
@@ -137,7 +137,7 @@ export const Items = () => {
                 }
               })}
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
