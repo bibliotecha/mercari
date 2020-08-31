@@ -1,31 +1,30 @@
 import React from 'react';
-// import { useState, useEffect } from 'react';
-// import config from '../../config';
+import { useState, useEffect } from 'react';
+import config from '../../config';
 import './ItemsSection.styles.css';
 import { Heart } from '../../assets/svg';
-import { tempItems } from '../../data/items';
 
 export const Items = () => {
-  // const [items, setItems] = useState();
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const res = await fetch(config.api_url, {
-  //         method: 'GET',
-  //         headers: {
-  //           'Access-Control-Allow-Origin': '*',
-  //           'Access-Control-Allow-Credentials': true,
-  //           'Access-Control-Allow-Methods': 'POST, GET',
-  //         },
-  //       });
-  //       const resJson = await res.json();
-  //       setItems(resJson);
-  //     } catch (err) {
-  //       throw err;
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
+  const [items, setItems] = useState();
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch(config.api_url, {
+          method: 'GET',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Methods': 'POST, GET',
+          },
+        });
+        const resJson = await res.json();
+        setItems(resJson);
+      } catch (err) {
+        throw err;
+      }
+    }
+    fetchData();
+  }, []);
 
   const genres = [
     {
@@ -46,19 +45,19 @@ export const Items = () => {
     },
   ];
 
-  const displayItems = tempItems.items.map((item, index) => {
-    if (index === 9) {
+  const displayItems = items.map((item) => {
+    if (item.id === 9) {
       return (
-        <li key={index}>
+        <li key={item.id}>
           <a href='http://www.google.com'>
             <div class='card card-none'>
               <div class='card__preview'>
                 <div class='card__preview--price'>
                   <div class='card__preview--text'>
-                    <p>¥{item.price}</p>
+                    <p>¥6666</p>
                   </div>
                 </div>
-                <img src={item.imgUrl} alt='' />
+                <img src={item.url} alt='' />
               </div>
 
               <div class='card__caption'>
@@ -69,7 +68,7 @@ export const Items = () => {
                       <Heart />
                     </div>
                     <div class='card__like-text'>
-                      <span id='count'>{item.like}</span>
+                      <span id='count'>20</span>
                     </div>
                   </div>
                 </div>
