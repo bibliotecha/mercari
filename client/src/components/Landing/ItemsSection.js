@@ -40,81 +40,119 @@ export const Items = () => {
 
   return (
     <section class='items-section'>
-      <div class='items-section__inner--top'>
+      <div class='items-section__top'>
         <div class='items-section__title'>
           <h3>人気のカテゴリー</h3>
         </div>
-        <ul class='items-section__categories horizontal_scroll'>
-          <li class='items-section__categories-item'>
-            <button>レディース</button>
+        <ul class='items-section__categories'>
+          <li>
+            <a>レディース</a>
           </li>
-          <li class='items-section__categories-item'>
-            <button>メンズ</button>
+          <li>
+            <a>メンズ</a>
           </li>
-          <li class='items-section__categories-item'>
-            <button>家電・スマホ・カメラ</button>
+          <li>
+            <a>家電・スマホ・カメラ</a>
           </li>
-          <li class='items-section__categories-item'>
-            <button>おもちゃ・ホビー・グッズ</button>
+          <li>
+            <a>おもちゃ・ホビー・グッズ</a>
           </li>
         </ul>
       </div>
-      <div class='items-section__inner--bottom'>
-        <div class='items-section__inner--bottom-container'>
+      <div class='items-section__bottom'>
+        <div class='items-section__bottom-inner'>
           <div class='items-section__product--title'>
             <div class='items-section__category--text'>
               <h4>レディース新着アイテム</h4>
             </div>
-            <div classs='items-section__link-wrapper'>
-              <div class='items-section__category--more'>
-                <a href='/'>もっと見る</a>
-                <svg
-                  width='16'
-                  height='16'
-                  fill='#0095ee'
-                  fill-rule='evenodd'
-                  viewBox='0 0 24 24'
-                  aria-hidden='true'
-                  class='items-section__category--svg'>
-                  <path d='M9,19a.7.7,0,0,1-.49-.2.69.69,0,0,1,0-1l5.62-5.63a.28.28,0,0,0,.09-.21.27.27,0,0,0-.09-.2L8.6,6.19a.7.7,0,1,1,1-1l5.58,5.58A1.71,1.71,0,0,1,15.66,12a1.73,1.73,0,0,1-.49,1.2L9.54,18.8A.74.74,0,0,1,9,19Z'></path>
-                </svg>
-              </div>
+            <div class='items-section__category--more'>
+              <a href='/'>もっと見る</a>
+              <svg
+                width='16'
+                height='16'
+                fill='#0095ee'
+                fill-rule='evenodd'
+                viewBox='0 0 24 24'
+                aria-hidden='true'
+                class='items-section__category--svg'>
+                <path d='M9,19a.7.7,0,0,1-.49-.2.69.69,0,0,1,0-1l5.62-5.63a.28.28,0,0,0,.09-.21.27.27,0,0,0-.09-.2L8.6,6.19a.7.7,0,1,1,1-1l5.58,5.58A1.71,1.71,0,0,1,15.66,12a1.73,1.73,0,0,1-.49,1.2L9.54,18.8A.74.74,0,0,1,9,19Z'></path>
+              </svg>
             </div>
           </div>
           <div class='items-section__product--container'>
-            {items.map((item) => {
-              return (
-                <a href='#'>
-                  <div class='card card-none'>
-                    <div class='card__preview'>
-                      <div class='card__preview--price'>
-                        <div class='card__preview--text'>
-                          <p>¥6666</p>
-                        </div>
-                      </div>
-                      <img src={item.url} alt='' />
-                    </div>
+            <ul>
+              {items.map((item, index) => {
+                if (index === 9) {
+                  return (
+                    <li>
+                      <a href='#'>
+                        <div class='card card-none'>
+                          <div class='card__preview'>
+                            <div class='card__preview--price'>
+                              <div class='card__preview--text'>
+                                <p>¥6666</p>
+                              </div>
+                            </div>
+                            <img src={item.url} alt='' />
+                          </div>
 
-                    <div class='card__caption'>
-                      <div class='card__caption-description'>
-                        <span>{item.name}</span>
-                        <div class='card__caption-likes'>
-                          <div>
-                            <label class='like'>
-                              <i class='material-icons' id='heart'></i>
-                              <div class='ripple'></div>
-                            </label>
-                          </div>
-                          <div class='favourite-counter'>
-                            <span id='count'>0</span>
+                          <div class='card__caption'>
+                            <div class='card__caption-description'>
+                              <span>{item.name}</span>
+                              <div class='card__caption-likes'>
+                                <div>
+                                  <label class='like'>
+                                    <i class='material-icons' id='heart'></i>
+                                    <div class='ripple'></div>
+                                  </label>
+                                </div>
+                                <div class='favourite-counter'>
+                                  <span id='count'>0</span>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              );
-            })}
+                      </a>
+                    </li>
+                  );
+                } else {
+                  return (
+                    <li>
+                      <a href='#'>
+                        <div class='card'>
+                          <div class='card__preview'>
+                            <div class='card__preview--price'>
+                              <div class='card__preview--text'>
+                                <p>¥6666</p>
+                              </div>
+                            </div>
+                            <img src={item.url} alt='' />
+                          </div>
+
+                          <div class='card__caption'>
+                            <div class='card__caption-description'>
+                              <span>{item.name}</span>
+                              <div class='card__caption-likes'>
+                                <div>
+                                  <label class='like'>
+                                    <i class='material-icons' id='heart'></i>
+                                    <div class='ripple'></div>
+                                  </label>
+                                </div>
+                                <div class='favourite-counter'>
+                                  <span id='count'>0</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  );
+                }
+              })}
+            </ul>
           </div>
         </div>
       </div>

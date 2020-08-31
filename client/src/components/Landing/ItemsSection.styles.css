@@ -1,14 +1,12 @@
-/* section */
 .items-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   height: 100%;
-  /* padding: 0 auto; */
 }
 
-.items-section__inner--top {
+.items-section__top {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,7 +14,6 @@
   width: 100%;
 }
 
-/* 人気のカテゴリータイトル */
 .items-section__title {
   display: flex;
   justify-content: center;
@@ -27,27 +24,22 @@
   margin-bottom: 16px;
 }
 
-/* 横スクロール */
 .items-section__categories {
-  display: inline-block;
   list-style: none;
   margin: 0;
-}
-
-.horizontal_scroll {
+  white-space: nowrap;
+  margin-right: 15px;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
-  padding: 0 0 0 8px;
-  display: -ms-flexbox;
+  padding: 10px;
   display: flex;
 }
 
-.horizontal_scroll li {
-  white-space: nowrap;
-  margin-right: 15px; /* ken */
+.items-section__categories li {
+  margin: 0 6px;
 }
 
-.items-section__categories-item > button {
+.items-section__categories a {
   border-radius: 15px;
   background-color: rgb(239, 239, 239);
   border: none;
@@ -56,22 +48,19 @@
   font-weight: 600;
 }
 
-.items-section__inner--bottom {
+.items-section__bottom {
   background: #efefef;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px 20px;
+  padding: 40px 0px 20px;
   width: 100%;
 }
 
-.items-section__inner--bottom-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.items-section__bottom-inner {
   width: 100%;
-  padding: 30px 0 60px;
+  padding: 0 10px;
 }
 
 .items-section__product--title {
@@ -82,7 +71,6 @@
   width: 100%;
 }
 
-/* レディース新着アイテム */
 .items-section__category--text {
   display: flex;
   justify-content: flex-start;
@@ -91,14 +79,8 @@
   width: 100%;
 }
 
-.items-section__link-wrapper {
-  display: flex;
-  flex-direction: row;
-}
-
 .items-section__category--more {
   align-items: center;
-  color: #0095ee;
   cursor: pointer;
   display: inline-flex;
   line-height: 1.4em;
@@ -107,14 +89,22 @@
   white-space: nowrap;
 }
 
-/*  商品画像エリア*/
+.items-section__category--more a {
+  color: #0095ee;
+}
+
 .items-section__product--container {
+  width: 100%;
+}
+
+.items-section__product--container ul {
   display: grid;
   justify-content: center;
   grid-template-rows: repeat(3, calc(width * 0.33));
   grid-template-columns: repeat(3, minmax(70px, 1fr));
-  padding: 10px auto 25px;
   gap: 5px;
+  list-style: none;
+  padding: 0;
 }
 
 .card {
@@ -122,11 +112,11 @@
   flex-direction: column;
   justify-content: center;
   box-shadow: 1px, 1px, 4, gray;
-  border: 1px solid transparent; /* ken */
+  border: 1px solid transparent;
 }
 
 .card:hover {
-  transition: 0.7s; /* ken */
+  transition: 0.7s;
   border: 1px solid #0095ee;
 }
 
@@ -136,7 +126,6 @@
   height: auto;
   position: relative;
   text-decoration: none;
-  /* vertical-align: top; */
   position: relative;
   padding: 0;
 }
@@ -153,7 +142,6 @@
 }
 
 .card__preview--price {
-  /* padding-top: 50px; */
   z-index: 2;
   position: absolute;
   color: #fff;
@@ -174,7 +162,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
   position: relative;
   width: 100%;
-  padding: 10px; /* ken */
+  padding: 10px;
 }
 
 .card__caption-description {
@@ -183,11 +171,10 @@
   position: relative;
 }
 
-/* ken */
 .card__caption-description span {
-  height: 40px; /* ken */
+  height: 40px;
   white-space: normal;
-  font-size: 13px; /* ken */
+  font-size: 13px;
   display: block;
   overflow: hidden;
 }
@@ -195,18 +182,12 @@
 .card__caption-likes {
   display: flex;
   position: absolute;
-  /* padding: 0 8px; */
-  /* width: 30%; */
   height: 24px;
-  /* justify-content: space-between; */
   bottom: 0;
   right: 0;
-  /* right: 20%; */
   z-index: 100;
   background-color: #fff;
 }
-
-/* ken */
 .card__caption-likes:before {
   content: '';
   position: absolute;
@@ -225,14 +206,9 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  /* background-color: #fff; */
   transition: background 0.3s;
   position: relative;
 }
-
-/* .like:hover {
-  background: #f5f5f5;
-} */
 
 .like [type='checkbox']:checked ~ .material-icons {
   animation-name: heart;
@@ -254,7 +230,7 @@
 }
 
 .material-icons {
-  font-size: 18px !important; /* ken */
+  font-size: 18px !important;
   color: #e4e4e4;
   user-select: none;
   position: relative;
@@ -295,7 +271,7 @@
 .favourite-counter {
   line-height: 24px;
   width: 20px;
-  margin-left: 10px; /* ken */
+  margin-left: 10px;
   align-items: center;
   background-color: #fff;
 }
@@ -310,8 +286,7 @@
     line-height: 34px;
   }
 
-  /* 人気のカテゴリータイトル */
-  .items-section__inner--top {
+  .items-section__top {
     padding: 54px 0 30px;
   }
 
@@ -323,61 +298,43 @@
 
   .items-section__categories {
     justify-content: center;
-  }
-
-  /* 横スクロール */
-  .horizontal_scroll {
     overflow-x: inherit;
   }
 
-  /* 商品エリア */
-  .items-section__inner--bottom {
-    padding: 56px 50px 30px;
-  }
-
-  .items-section__inner--bottom-container {
+  .items-section__bottom-inner {
     max-width: 700px;
   }
 
   .items-section__product--title {
-    max-width: 700x;
-    margin: 0 auto;
   }
 
   .items-section__category--more {
     display: inline-flex;
   }
 
-  /* 商品画像エリア */
-  .items-section__product--container {
-    grid-template-rows: repeat (5, calc(width * 0.2));
-    grid-template-columns: repeat(5, minmax(140px, 1fr));
+  .items-section__product--container ul {
+    grid-template-columns: repeat(5, minmax(120px, 1fr));
     gap: 10px;
   }
 
   .card__caption {
-    padding: 15px 10px; /* ken */
+    padding: 15px 10px;
   }
 
   .card-none {
-    display: flex;
+    display: block;
   }
 
   .card__caption-description {
-    /* ken
-    height: 50px; */
   }
 
   .card__caption-description span {
-    /* height: 48px; */ /*ken*/
     white-space: normal;
     font-size: 14px;
   }
 
   .card__caption-likes {
-    /* height: 30px; */ /*ken*/
     line-height: 30px;
-    /* right: 10%; */ /*ken*/
   }
 
   .material-icons {
@@ -386,7 +343,7 @@
 }
 
 @media (min-width: 1065px) {
-  .items-section__inner--bottom-container {
+  .items-section__bottom-inner {
     max-width: 1024px;
   }
 }
