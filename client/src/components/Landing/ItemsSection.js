@@ -1,8 +1,10 @@
 import React from 'react';
 // import { useState, useEffect } from 'react';
 // import config from '../../config';
+import itemImg from '../../assets/img/mercari_item.jpg';
 import './ItemsSection.styles.css';
-// import { Heart } from '../../assets/svg';
+import { Heart } from '../../assets/svg';
+import { tempItems } from '../../data/items';
 
 export const Items = () => {
   // const [items, setItems] = useState();
@@ -26,6 +28,91 @@ export const Items = () => {
   //   fetchData();
   // }, []);
 
+  const genres = [
+    {
+      url: '#ladies',
+      name: 'レディース',
+    },
+    {
+      url: '#mens',
+      name: 'メンズ',
+    },
+    {
+      url: '#electronics',
+      name: '家電・スマホ・カメラ',
+    },
+    {
+      url: '#toys',
+      name: 'おもちゃ・ホビー・グッズ',
+    },
+  ];
+
+  const displayItems = tempItems.items.map((item, index) => {
+    if (index === 9) {
+      return (
+        <li key={index}>
+          <a href='http://www.google.com'>
+            <div class='card card-none'>
+              <div class='card__preview'>
+                <div class='card__preview--price'>
+                  <div class='card__preview--text'>
+                    <p>¥{item.price}</p>
+                  </div>
+                </div>
+                <img src={item.imgUrl} alt='' />
+              </div>
+
+              <div class='card__caption'>
+                <div class='card__caption-description'>
+                  <span>{item.description}</span>
+                  <div class='card__caption-likes'>
+                    <div class='card__like-icon'>
+                      <Heart />
+                    </div>
+                    <div class='card__like-text'>
+                      <span id='count'>{item.like}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+      );
+    } else {
+      return (
+        <li key={index}>
+          <a href='http://www.google.com'>
+            <div class='card'>
+              <div class='card__preview'>
+                <div class='card__preview--price'>
+                  <div class='card__preview--text'>
+                    <p>¥{item.price}</p>
+                  </div>
+                </div>
+                <img src={item.imgUrl} alt='' />
+              </div>
+
+              <div class='card__caption'>
+                <div class='card__caption-description'>
+                  <span>{item.description}</span>
+                  <div class='card__caption-likes'>
+                    <div class='card__like-icon'>
+                      <Heart />
+                    </div>
+                    <div class='card__like-text'>
+                      <span id='count'>{item.like}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+      );
+    }
+  });
+
   return (
     <section class='items-section'>
       <div class='items-section__top'>
@@ -33,18 +120,13 @@ export const Items = () => {
           <h3>人気のカテゴリー</h3>
         </div>
         <ul class='items-section__categories'>
-          <li>
-            <a href='#ladies'>レディース</a>
-          </li>
-          <li>
-            <a href='#mens'>メンズ</a>
-          </li>
-          <li>
-            <a href='#electronics'>家電・スマホ・カメラ</a>
-          </li>
-          <li>
-            <a href='#toys'>おもちゃ・ホビー・グッズ</a>
-          </li>
+          {genres.map((genre, index) => {
+            return (
+              <li key={index}>
+                <a href={genre.url}>{genre.name}</a>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div id='ladies' class='items-section__bottom'>
@@ -67,78 +149,9 @@ export const Items = () => {
               </svg>
             </div>
           </div>
-          {/* <div class='items-section__product--container'>
-            <ul>
-              {items.map((item, index) => {
-                if (index === 9) {
-                  return (
-                    <li>
-                      <a href='http://www.google.com'>
-                        <div class='card card-none'>
-                          <div class='card__preview'>
-                            <div class='card__preview--price'>
-                              <div class='card__preview--text'>
-                                <p>¥6666</p>
-                              </div>
-                            </div>
-                            <img src={item.url} alt='' />
-                          </div>
-
-                          <div class='card__caption'>
-                            <div class='card__caption-description'>
-                              <span>{item.name}</span>
-                              <div class='card__caption-likes'>
-                                <div>
-                                  <label class='like'>
-                                    <i class='material-icons' id='heart'></i>
-                                    <div class='ripple'></div>
-                                  </label>
-                                </div>
-                                <div class='favourite-counter'>
-                                  <span id='count'>0</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                  );
-                } else {
-                  return (
-                    <li key={index}>
-                      <a href='http://www.google.com'>
-                        <div class='card'>
-                          <div class='card__preview'>
-                            <div class='card__preview--price'>
-                              <div class='card__preview--text'>
-                                <p>¥6666</p>
-                              </div>
-                            </div>
-                            <img src={item.url} alt='' />
-                          </div>
-
-                          <div class='card__caption'>
-                            <div class='card__caption-description'>
-                              <span>{item.description}</span>
-                              <div class='card__caption-likes'>
-                                <div class='card__like-icon'>
-                                  <Heart />
-                                </div>
-                                <div class='card__like-text'>
-                                  <span id='count'>0</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                  );
-                }
-              })}
-            </ul>
-          </div> */}
+          <div class='items-section__product--container'>
+            <ul>{displayItems}</ul>
+          </div>
         </div>
       </div>
     </section>
