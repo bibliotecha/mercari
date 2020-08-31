@@ -192,88 +192,28 @@
   content: '';
   position: absolute;
   display: block;
-  left: -10px;
+  left: -20px;
   width: 20px;
   height: 100%;
   background: linear-gradient(90deg, rgba(256, 256, 256, 0.1), #fff 72%);
 }
 
-.like {
+.card__like-icon {
   cursor: pointer;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 24px;
+  display: block;
+  width: 15px;
+  height: 100%;
+  position: relative;
+  top: 2px;
   border-radius: 50%;
   transition: background 0.3s;
   position: relative;
+  margin-right: 4px;
 }
 
-.like [type='checkbox']:checked ~ .material-icons {
-  animation-name: heart;
-  animation-duration: 0.6s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes heart {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-    color: red;
-  }
-}
-
-.material-icons {
-  font-size: 18px !important;
-  color: #e4e4e4;
-  user-select: none;
-  position: relative;
-  top: 2px;
-  right: -3px;
-}
-
-.ripple {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: red;
-  border-radius: 50%;
-  transform: scale(0);
-  top: 2px;
-  right: -5px;
-}
-
-.like [type='checkbox']:checked ~ .ripple {
-  animation-name: ripple;
-  animation-duration: 0.6s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes ripple {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
-}
-
-.favourite-counter {
-  line-height: 24px;
-  width: 20px;
-  margin-left: 10px;
-  align-items: center;
-  background-color: #fff;
+.card__like-icon svg {
+  width: 100%;
+  fill: gray;
 }
 
 .card-none {

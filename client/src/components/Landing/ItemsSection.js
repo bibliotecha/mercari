@@ -3,6 +3,7 @@ import config from '../../config';
 // Css
 import './ItemsSection.styles.css';
 import item from '../../assets/img/mercari_item.jpg';
+import { Heart } from '../../assets/svg';
 
 export const Items = () => {
   // const [items, setItems] = useState();
@@ -26,16 +27,16 @@ export const Items = () => {
   //   fetchData();
   // }, []);
   const items = [
-    { url: item, name: 'デニム生地チュニック【大きいサイズ】4L' },
-    { url: item, name: 'デニム生地チュニック【大きいサイズ】4L' },
-    { url: item, name: 'デニム生地チュニック【大きいサイズ】4L' },
-    { url: item, name: 'デニム生地チュニック【大きいサイズ】4L' },
-    { url: item, name: 'デニム生地チュニック【大きいサイズ】4L' },
-    { url: item, name: 'デニム生地チュニック【大きいサイズ】4L' },
-    { url: item, name: 'デニム生地チュニック【大きいサイズ】4L' },
-    { url: item, name: 'デニム生地チュニック【大きいサイズ】4L' },
-    { url: item, name: 'デニム生地チュニック【大きいサイズ】4L' },
-    { url: item, name: 'デニム生地チュニック【大きいサイズ】4L' },
+    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
+    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
+    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
+    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
+    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
+    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
+    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
+    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
+    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
+    { url: item, name: 'HYSTERIC GLAMOUR ロング Tシャツ ワンピース 春夏' },
   ];
 
   return (
@@ -134,13 +135,10 @@ export const Items = () => {
                             <div class='card__caption-description'>
                               <span>{item.name}</span>
                               <div class='card__caption-likes'>
-                                <div>
-                                  <label class='like'>
-                                    <i class='material-icons' id='heart'></i>
-                                    <div class='ripple'></div>
-                                  </label>
+                                <div class='card__like-icon'>
+                                  <Heart />
                                 </div>
-                                <div class='favourite-counter'>
+                                <div class='card__like-text'>
                                   <span id='count'>0</span>
                                 </div>
                               </div>
