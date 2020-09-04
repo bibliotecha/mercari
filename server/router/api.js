@@ -1,49 +1,45 @@
-const pool = require('../database/db');
 const express = require('express');
-const { db } = require('../config');
-const { seedItems } = require('../database/seed');
-// const { seedItems } = require('../database/seed');
+const { getAllItems, insertItem } = require('../services/items');
+const { createTable, dropTable } = require('../services/mysql');
 const router = express.Router();
+const { items } = require('../database/seed');
 
-router.get('/', (req, res) => {
-  pool.getConnection((err, connection) => {
-    if (err) throw err;
-    connection.query('SELECT * FROM items', (err, result) => {
-      if (err) throw err;
-      res.status(200).json(result);
-    });
-    connection.release();
-  });
+router.get('/', async (req, res) => {
+  try {
+    const items = await getAllItems();
+    return res.status(200).json(items);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-router.get('/droptable', (req, res) => {
-  pool.getConnection((err, connection) => {
-    if (err) throw err;
-    connection.query('DROP TABLE items', (err, result) => {
-      if (err) throw err;
-      res.status(200).json(result);
-    });
-    connection.release();
-  });
+router.get('/droptable', async (req, res) => {
+  try {
+    await dropTable();
+    return res.status(200).json('successfully dropped database');
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-router.get('/createtable', (req, res) => {
-  pool.getConnection((err, connection) => {
-    if (err) throw err;
-    connection.query(
-      'CREATE TABLE items (id SERIAL PRIMARY KEY, name VARCHAR(255), url VARCHAR(255), description VARCHAR(255))',
-      (err, result) => {
-        if (err) throw err;
-        res.status(200).json('テーブルの作成に成功しました');
-      }
-    );
-    connection.release();
-  });
+router.get('/createtable', async (req, res) => {
+  try {
+    await createTable();
+    return res.status(200).json('successfully created database');
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-router.get('/seed', (req, res) => {
-  seedItems();
-  res.status(200).json('無事にサンプルデータを入力しました');
+router.get('/seed', async (req, res) => {
+  try {
+    for (let i = 0; i < items.length; i++) {
+      await insertItem(items[i].name, items[i].url, items[i].description);
+    }
+    return res.status(200).json('無事にサンプルデータを入力しました');
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;

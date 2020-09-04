@@ -1,5 +1,3 @@
-const db = require('./db');
-const pool = require('../database/db');
 const items = [
   {
     name: '服',
@@ -63,22 +61,6 @@ const items = [
   },
 ];
 
-const seedItems = () => {
-  pool.getConnection((err, connection) => {
-    if (err) throw err;
-    for (let i = 0; i < items.length; i++) {
-      connection.query(
-        `INSERT INTO items (name, url, description) VALUES (?, ?, ?)`,
-        [items[i].name, items[i].url, items[i].description],
-        (err, result) => {
-          if (err) throw err;
-        }
-      );
-    }
-    connection.release();
-  });
-};
-
 module.exports = {
-  seedItems,
+  items,
 };

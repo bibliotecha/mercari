@@ -5,7 +5,7 @@ import './ItemsSection.styles.css';
 import { Heart } from '../../assets/svg';
 
 export const Items = () => {
-  const [items, setItems] = useState();
+  const [items, setItems] = useState([]);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -18,6 +18,7 @@ export const Items = () => {
           },
         });
         const resJson = await res.json();
+        console.log('log', resJson);
         setItems(resJson);
       } catch (err) {
         throw err;
@@ -88,7 +89,7 @@ export const Items = () => {
                     <p>¥{item.price}</p>
                   </div>
                 </div>
-                <img src={item.imgUrl} alt='' />
+                <img src={item.url} alt='' />
               </div>
 
               <div class='card__caption'>
