@@ -5,11 +5,7 @@ const port = 4000;
 
 app.use(express.json());
 
-const data = JSON.parse(
-  fs.readFileSync('./data.json', (data) => {
-    data;
-  })
-);
+const { items } = JSON.parse(fs.readFileSync('./data.json'));
 
 app.get('/items', (req, res) => {
   return res.status(200).json({
@@ -19,7 +15,22 @@ app.get('/items', (req, res) => {
 });
 
 app.get('/items/:id', (req, res) => {
-  console.log(req.params);
+  const item = items.find((item) => {
+    console.log('item', item);
+    return item.id === parseInt(req.params.id);
+  });
+
+  if (item) {
+    res.status(200).json({
+      status: 'success',
+      data: item,
+    });
+  } else {
+    res.status(400).json({
+      status: 'fail',
+      data: {},
+    });
+  }
 });
 
 app.post('/items', (req, res) => {
