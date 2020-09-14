@@ -7,7 +7,7 @@ app.use(express.json());
 
 const { items } = JSON.parse(fs.readFileSync('./data.json'));
 
-app.get('/items', (req, res) => {
+app.get('/items', (_, res) => {
   return res.status(200).json({
     status: 'successful',
     data,
@@ -15,26 +15,33 @@ app.get('/items', (req, res) => {
 });
 
 app.get('/items/:id', (req, res) => {
-  const item = items.find((item) => {
-    console.log('item', item);
-    return item.id === parseInt(req.params.id);
-  });
+  const id = parseInt(req.params.id);
 
-  if (item) {
-    res.status(200).json({
-      status: 'success',
-      data: item,
-    });
-  } else {
-    res.status(400).json({
+  if (id > items.length || id < 0) {
+    res.status(404).json({
       status: 'fail',
-      data: {},
+      message: 'ID was out of range',
     });
   }
+
+  const item = items.find((item) => {
+    console.log('item', item);
+    return item.id === id;
+  });
+
+  if (!item) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'No such ID was found by that ID',
+    });
+  }
+  res.status(200).json({
+    status: 'success',
+    data: item,
+  });
 });
 
 app.post('/items', (req, res) => {
-  console.log(req.body);
   const newId = data.items[data.items.length - 1].id + 1;
   const newItem = Object.assign({}, { id: newId }, req.body);
   // ファイル内の配列に追加
@@ -48,6 +55,55 @@ app.post('/items', (req, res) => {
     });
   });
   //res.send('Done'); // レスポンスが２度送られるためエラーが出る
+});
+
+app.patch('/items/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  if (id > items.length || id < 0) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'ID was out of range',
+    });
+  }
+
+  const item = items.find((item) => {
+    console.log('item', item);
+    return item.id === id;
+  });
+
+  if (!item) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'No such ID was found by that ID',
+    });
+  }
+  res.status(200).json({
+    status: 'success',
+  });
+});
+
+app.delete('/items/:id', (req, res) => {
+  if (id > items.length || id < 0) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'ID was out of range',
+    });
+  }
+
+  const item = items.find((item) => {
+    console.log('item', item);
+    return item.id === id;
+  });
+
+  if (!item) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'No such ID was found by that ID',
+    });
+  }
+  res.status(200).json({
+    status: 'success',
+  });
 });
 
 app.listen(port, () => {
