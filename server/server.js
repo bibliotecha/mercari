@@ -7,14 +7,14 @@ app.use(express.json());
 
 const { items } = JSON.parse(fs.readFileSync('./data.json'));
 
-app.get('/items', (_, res) => {
+const getAllItems = (_, res) => {
   return res.status(200).json({
     status: 'successful',
     data,
   });
-});
+};
 
-app.get('/items/:id', (req, res) => {
+const getItem = (req, res) => {
   const id = parseInt(req.params.id);
 
   if (id > items.length || id < 0) {
@@ -39,9 +39,9 @@ app.get('/items/:id', (req, res) => {
     status: 'success',
     data: item,
   });
-});
+};
 
-app.post('/items', (req, res) => {
+const createItem = (req, res) => {
   const newId = data.items[data.items.length - 1].id + 1;
   const newItem = Object.assign({}, { id: newId }, req.body);
   // ファイル内の配列に追加
@@ -55,9 +55,9 @@ app.post('/items', (req, res) => {
     });
   });
   //res.send('Done'); // レスポンスが２度送られるためエラーが出る
-});
+};
 
-app.patch('/items/:id', (req, res) => {
+const updateItem = (req, res) => {
   const id = parseInt(req.params.id);
   if (id > items.length || id < 0) {
     res.status(404).json({
@@ -80,9 +80,10 @@ app.patch('/items/:id', (req, res) => {
   res.status(200).json({
     status: 'success',
   });
-});
+};
 
-app.delete('/items/:id', (req, res) => {
+const deleteItem = (req, res) => {
+  const id = parseInt(req.params.id);
   if (id > items.length || id < 0) {
     res.status(404).json({
       status: 'fail',
@@ -104,7 +105,17 @@ app.delete('/items/:id', (req, res) => {
   res.status(200).json({
     status: 'success',
   });
-});
+};
+
+// app.get('/items', getAllItems);
+// app.get('/items/:id', getItem);
+// app.post('/items', createItem);
+// app.patch('/items/:id', updateItem);
+// app.delete('/items/:id', deleteItem);
+
+// １行で置き換えられる
+app.route('/items').get(getAllItems).post(createItem);
+app.route('/items/:id').get(getItem).patch(updateItem).delete(deleteItem);
 
 app.listen(port, () => {
   console.log('サーバーが立ち上がりました');
