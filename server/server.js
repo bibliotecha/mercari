@@ -3,6 +3,8 @@ const fs = require('fs');
 const app = express();
 const port = 4000;
 
+const itemRouter = express.Router();
+
 app.use(express.json());
 
 const { items } = JSON.parse(fs.readFileSync('./data.json'));
@@ -142,9 +144,16 @@ const deleteUser = (req, res) => {
   });
 };
 
+app.use('/items', itemRouter);
+
+itemRouter.route('/').get(getAllItems).post(createItem);
+itemRouter
+  .route('/items/:id')
+  .get(getItem)
+  .patch(updateItem)
+  .delete(deleteItem);
+
 // １行で置き換えられる
-app.route('/items').get(getAllItems).post(createItem);
-app.route('/items/:id').get(getItem).patch(updateItem).delete(deleteItem);
 app.route('/users').get(getAllUsers).post(createUser);
 app.route('/users/:id').get(getUser).patch(updateUser).delete(deleteUser);
 
