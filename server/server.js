@@ -4,6 +4,7 @@ const app = express();
 const port = 4000;
 
 const itemRouter = express.Router();
+const userRouter = express.Router();
 
 app.use(express.json());
 
@@ -145,6 +146,7 @@ const deleteUser = (req, res) => {
 };
 
 app.use('/items', itemRouter);
+app.use('/users', userRouter);
 
 itemRouter.route('/').get(getAllItems).post(createItem);
 itemRouter
@@ -153,9 +155,12 @@ itemRouter
   .patch(updateItem)
   .delete(deleteItem);
 
-// １行で置き換えられる
-app.route('/users').get(getAllUsers).post(createUser);
-app.route('/users/:id').get(getUser).patch(updateUser).delete(deleteUser);
+userRouter.route('/').get(getAllUsers).post(createUser);
+userRouter
+  .route('/users/:id')
+  .get(getUser)
+  .patch(updateUser)
+  .delete(deleteUser);
 
 app.listen(port, () => {
   console.log('サーバーが立ち上がりました');
