@@ -107,15 +107,46 @@ const deleteItem = (req, res) => {
   });
 };
 
-// app.get('/items', getAllItems);
-// app.get('/items/:id', getItem);
-// app.post('/items', createItem);
-// app.patch('/items/:id', updateItem);
-// app.delete('/items/:id', deleteItem);
+const getAllUsers = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'route is not yet defined',
+  });
+};
+
+const createUser = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'route is not yet defined',
+  });
+};
+
+const getUser = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'route is not yet defined',
+  });
+};
+
+const updateUser = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'route is not yet defined',
+  });
+};
+
+const deleteUser = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'route is not yet defined',
+  });
+};
 
 // １行で置き換えられる
 app.route('/items').get(getAllItems).post(createItem);
 app.route('/items/:id').get(getItem).patch(updateItem).delete(deleteItem);
+app.route('/users').get(getAllUsers).post(createUser);
+app.route('/users/:id').get(getUser).patch(updateUser).delete(deleteUser);
 
 app.listen(port, () => {
   console.log('サーバーが立ち上がりました');
