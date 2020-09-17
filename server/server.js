@@ -13,7 +13,7 @@ const { items } = JSON.parse(fs.readFileSync('./data.json'));
 const getAllItems = (_, res) => {
   return res.status(200).json({
     status: 'successful',
-    data,
+    data: items,
   });
 };
 
