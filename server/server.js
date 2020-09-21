@@ -3,7 +3,8 @@ const fs = require('fs');
 const app = express();
 const port = 4000;
 
-const itemRouter = express.Router();
+const itemRouter = require('./routes/itemRouter');
+
 const userRouter = express.Router();
 
 app.use(express.json());
@@ -147,13 +148,6 @@ const deleteUser = (req, res) => {
 
 app.use('/items', itemRouter);
 app.use('/users', userRouter);
-
-itemRouter.route('/').get(getAllItems).post(createItem);
-itemRouter
-  .route('/items/:id')
-  .get(getItem)
-  .patch(updateItem)
-  .delete(deleteItem);
 
 userRouter.route('/').get(getAllUsers).post(createUser);
 userRouter
