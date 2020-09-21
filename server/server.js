@@ -4,8 +4,7 @@ const app = express();
 const port = 4000;
 
 const itemRouter = require('./routes/itemRouter');
-
-const userRouter = express.Router();
+const userRouter = require('./routes/userRouter');
 
 app.use(express.json());
 
@@ -148,13 +147,6 @@ const deleteUser = (req, res) => {
 
 app.use('/items', itemRouter);
 app.use('/users', userRouter);
-
-userRouter.route('/').get(getAllUsers).post(createUser);
-userRouter
-  .route('/users/:id')
-  .get(getUser)
-  .patch(updateUser)
-  .delete(deleteUser);
 
 app.listen(port, () => {
   console.log('サーバーが立ち上がりました');
