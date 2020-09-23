@@ -17,7 +17,10 @@ export const Items = () => {
         });
         const resJson = await res.json();
         console.log('log', resJson);
-        // setItems(resJson);
+        // 九つだけ表示させる
+        const displayingItems = resJson.data.slice(0, 10);
+
+        setItems(displayingItems);
       } catch (err) {
         throw err;
       }
@@ -45,7 +48,7 @@ export const Items = () => {
   ];
 
   const displayItems = items.map((item) => {
-    if (item.id === 9) {
+    if (item.id === 10) {
       return (
         <li key={item.id}>
           <a href='http://www.google.com'>
@@ -56,7 +59,7 @@ export const Items = () => {
                     <p>¥6666</p>
                   </div>
                 </div>
-                <img src={item.url} alt='' />
+                <img src={item.imgUrl} alt='' />
               </div>
 
               <div class='card__caption'>
@@ -87,7 +90,7 @@ export const Items = () => {
                     <p>¥{item.price}</p>
                   </div>
                 </div>
-                <img src={item.url} alt='' />
+                <img src={item.imgUrl} alt='' />
               </div>
 
               <div class='card__caption'>

@@ -69,8 +69,6 @@
       "price": 6000,
       "description": "ステラマッカートニー　FALABELLA　ファラベラ　ショルダーバッグ",
       "like": 32
-    },
-    { "id": 11, "items": "hello" },
-    { "id": 12, "items": "hello" }
+    }
   ]
 }
