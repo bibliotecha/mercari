@@ -9,17 +9,15 @@ export const Items = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch(config.api_url, {
+        const res = await fetch('http://localhost:4000/items', {
           method: 'GET',
           headers: {
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true,
-            'Access-Control-Allow-Methods': 'POST, GET',
           },
         });
         const resJson = await res.json();
         console.log('log', resJson);
-        setItems(resJson);
+        // setItems(resJson);
       } catch (err) {
         throw err;
       }
