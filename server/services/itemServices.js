@@ -1,5 +1,8 @@
 const fs = require('fs');
-const { items } = JSON.parse(fs.readFileSync('./data.json'));
+const path = require('path');
+const { items } = JSON.parse(
+  fs.readFileSync(path.join(__dirname, '../data.json'))
+);
 
 exports.getAllItems = (_, res) => {
   return res.status(200).json({
@@ -29,19 +32,21 @@ exports.getItem = (req, res) => {
 };
 
 exports.createItem = (req, res) => {
-  const newId = data.items[data.items.length - 1].id + 1;
+  const newId = items[items.length - 1].id + 1;
   const newItem = Object.assign({}, { id: newId }, req.body);
   // ファイル内の配列に追加
-  data.items.push(newItem);
-  fs.writeFileSync('./data.json', JSON.stringify(data), (err, data) => {
-    res.status(201).json({
-      status: 'success',
-      data: {
-        items: newItem,
-      },
-    });
+  items.push(newItem);
+
+  fs.writeFileSync(
+    path.join(__dirname, '../data.json'),
+    JSON.stringify({ items })
+  );
+  res.status(201).json({
+    status: 'success',
+    data: {
+      items: newItem,
+    },
   });
-  //res.send('Done'); // レスポンスが２度送られるためエラーが出る
 };
 
 exports.updateItem = (req, res) => {
