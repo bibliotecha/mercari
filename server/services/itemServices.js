@@ -11,13 +11,6 @@ exports.getAllItems = (_, res) => {
 exports.getItem = (req, res) => {
   const id = parseInt(req.params.id);
 
-  if (id > items.length || id < 0) {
-    res.status(404).json({
-      status: 'fail',
-      message: 'ID was out of range',
-    });
-  }
-
   item = items.find((item) => {
     console.log('item', item);
     return item.id === id;
@@ -53,12 +46,6 @@ exports.createItem = (req, res) => {
 
 exports.updateItem = (req, res) => {
   const id = parseInt(req.params.id);
-  if (id > items.length || id < 0) {
-    res.status(404).json({
-      status: 'fail',
-      message: 'ID was out of range',
-    });
-  }
 
   const item = items.find((item) => {
     console.log('item', item);
@@ -78,12 +65,6 @@ exports.updateItem = (req, res) => {
 
 exports.deleteItem = (req, res) => {
   const id = parseInt(req.params.id);
-  if (id > items.length || id < 0) {
-    res.status(404).json({
-      status: 'fail',
-      message: 'ID was out of range',
-    });
-  }
 
   const item = items.find((item) => {
     console.log('item', item);
