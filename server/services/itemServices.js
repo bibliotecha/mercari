@@ -83,7 +83,16 @@ exports.deleteItem = async (req, res) => {
   const numberId = parseInt(id);
 
   try {
-    await db.query('DELETE FROM items where id=$1', [numberId]);
+    const result = await db.query('DELETE FROM items where id=$1 returning *', [
+      numberId,
+    ]);
+    if (result.rows.length === 0) {
+      // 途中でレスポンスを返す際には必ずreturnをつけてあげる
+      return res.status(400).json({
+        status: 'fail',
+        message: "id doesn't exist",
+      });
+    }
     res.status(200).json({
       status: 'success',
     });
