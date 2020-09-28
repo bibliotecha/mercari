@@ -78,21 +78,19 @@ exports.updateItem = async (req, res) => {
   }
 };
 
-exports.deleteItem = (req, res) => {
-  const id = parseInt(req.params.id);
+exports.deleteItem = async (req, res) => {
+  const { id } = req.params;
+  const numberId = parseInt(id);
 
-  const item = items.find((item) => {
-    console.log('item', item);
-    return item.id === id;
-  });
-
-  if (!item) {
-    res.status(404).json({
+  try {
+    await db.query('DELETE FROM items where id=$1', [numberId]);
+    res.status(200).json({
+      status: 'success',
+    });
+  } catch {
+    res.status(400).json({
       status: 'fail',
-      message: 'No such ID was found by that ID',
+      message: 'something went wrong',
     });
   }
-  res.status(200).json({
-    status: 'success',
-  });
 };
