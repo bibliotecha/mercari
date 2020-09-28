@@ -8,15 +8,15 @@ const { items } = JSON.parse(
 
 exports.getAllItems = async (req, res) => {
   try {
-    const items = await db.query('select * from items');
-    console.log('items', items);
+    const result = await db.query('select * from items');
+    return res.status(200).json({
+      status: 'successful',
+      results: result.rows.length,
+      data: result.rows,
+    });
   } catch (err) {
     console.log(err);
   }
-  // return res.status(200).json({
-  //   status: 'successful',
-  //   data: items,
-  // });
 };
 
 exports.getItem = (req, res) => {
