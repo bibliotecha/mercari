@@ -8,7 +8,7 @@ const { items } = JSON.parse(
 
 exports.getItems = async (req, res) => {
   try {
-    const result = await db.query('select * from items');
+    const result = await db.query('SELECT * FROM items');
     return res.status(200).json({
       status: 'successful',
       results: result.rows.length,
@@ -25,7 +25,7 @@ exports.getItem = async (req, res) => {
 
   try {
     // `${}`でも結果だけ見れば同じだが、ハッキングされる恐れがあるので以下のやり方にしよう
-    const result = await db.query('select * from items where id=$1', [
+    const result = await db.query('SELECT * FROM items WHERE id=$1', [
       numberId,
     ]);
     if (!result.rows[0]) {
@@ -46,7 +46,7 @@ exports.getItem = async (req, res) => {
 exports.createItem = async (req, res) => {
   try {
     const result = await db.query(
-      'insert into items (imgUrl, price, description) values ($1, $2, $3) returning *',
+      'INSERT INTO items (imgUrl, price, description) VALUES ($1, $2, $3) returning *',
       [req.body.imgUrl, req.body.price, req.body.description]
     );
     return res.status(200).json({
@@ -58,23 +58,24 @@ exports.createItem = async (req, res) => {
   }
 };
 
-exports.updateItem = (req, res) => {
-  const id = parseInt(req.params.id);
+exports.updateItem = async (req, res) => {
+  const { id } = req.params;
+  const numberId = parseInt(id);
 
-  const item = items.find((item) => {
-    console.log('item', item);
-    return item.id === id;
-  });
+  try {
+    const result = await db.query(
+      'UPDATE ITEMS SET imgUrl=$1, price=$2, description=$3 WHERE id=$4 returning *',
+      [req.body.imgUrl, req.body.price, req.body.description, numberId]
+    );
 
-  if (!item) {
-    res.status(404).json({
-      status: 'fail',
-      message: 'No such ID was found by that ID',
+    console.log('result', result);
+
+    res.status(200).json({
+      status: 'success',
     });
+  } catch (err) {
+    console.log(err);
   }
-  res.status(200).json({
-    status: 'success',
-  });
 };
 
 exports.deleteItem = (req, res) => {
