@@ -8,7 +8,7 @@ router.param('id', CommonMiddleware.checkID);
 
 router
   .route('/')
-  .get(ItemServices.getAllItems)
+  .get(ItemServices.getItems)
   .post(ItemMiddleware.validateItem, ItemServices.createItem);
 router
   .route('/:id')

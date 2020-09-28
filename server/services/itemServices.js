@@ -6,7 +6,7 @@ const { items } = JSON.parse(
   fs.readFileSync(path.join(__dirname, '../data.json'))
 );
 
-exports.getAllItems = async (req, res) => {
+exports.getItems = async (req, res) => {
   try {
     const result = await db.query('select * from items');
     return res.status(200).json({
@@ -19,24 +19,19 @@ exports.getAllItems = async (req, res) => {
   }
 };
 
-exports.getItem = (req, res) => {
-  const id = parseInt(req.params.id);
+exports.getItem = async (req, res) => {
+  const { id } = req.params;
+  const numberId = parseInt(id);
 
-  item = items.find((item) => {
-    console.log('item', item);
-    return item.id === id;
-  });
-
-  if (!item) {
-    res.status(404).json({
-      status: 'fail',
-      message: 'No such ID was found by that ID',
-    });
+  try {
+    // `${}`でも結果だけ見れば同じだが、ハッキングされる恐れがあるので以下のやり方にしよう
+    const result = await db.query('select * from items where id=$1', [
+      numberId,
+    ]);
+    console.log('result', result);
+  } catch (err) {
+    console.log(err);
   }
-  res.status(200).json({
-    status: 'success',
-    data: item,
-  });
 };
 
 exports.createItem = (req, res) => {
