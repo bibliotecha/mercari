@@ -28,7 +28,16 @@ exports.getItem = async (req, res) => {
     const result = await db.query('select * from items where id=$1', [
       numberId,
     ]);
-    console.log('result', result);
+    if (!result.rows[0]) {
+      res.status(400).json({
+        status: 'failed',
+        message: 'No items found with that id',
+      });
+    }
+    res.status(200).json({
+      status: 'success',
+      data: result.rows[0],
+    });
   } catch (err) {
     console.log(err);
   }
