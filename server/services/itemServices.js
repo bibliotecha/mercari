@@ -6,8 +6,6 @@ const { items } = JSON.parse(
   fs.readFileSync(path.join(__dirname, '../data.json'))
 );
 
-console.log(process.env.PGUSER);
-
 exports.getAllItems = async (req, res) => {
   try {
     const items = await db.query('select * from items');

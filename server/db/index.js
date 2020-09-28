@@ -1,11 +1,5 @@
 const { Pool } = require('pg');
-const pool = new Pool({
-  user: 'postgres', //　デフォルト
-  host: 'localhost', // デフォルト
-  database: 'mercari',
-  password: 'password',
-  port: 5432, // デフォルト
-});
+const pool = new Pool();
 
 module.exports = {
   query: (text, params, callback) => {
