@@ -1,14 +1,18 @@
+const db = require('../db');
+
 const fs = require('fs');
 const path = require('path');
 const { items } = JSON.parse(
   fs.readFileSync(path.join(__dirname, '../data.json'))
 );
 
-exports.getAllItems = (_, res) => {
-  return res.status(200).json({
-    status: 'successful',
-    data: items,
-  });
+exports.getAllItems = async (req, res) => {
+  const items = await db.query('select * from items');
+  console.log('items', items);
+  // return res.status(200).json({
+  //   status: 'successful',
+  //   data: items,
+  // });
 };
 
 exports.getItem = (req, res) => {
