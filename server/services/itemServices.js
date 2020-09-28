@@ -46,12 +46,12 @@ exports.getItem = async (req, res) => {
 exports.createItem = async (req, res) => {
   try {
     const result = await db.query(
-      'insert into items (imgUrl, price, description) values ($1, $2, $3)',
+      'insert into items (imgUrl, price, description) values ($1, $2, $3) returning *',
       [req.body.imgUrl, req.body.price, req.body.description]
     );
-    console.log('result', result);
     return res.status(200).json({
       status: 'success',
+      data: result.rows,
     });
   } catch (err) {
     console.log(err);
