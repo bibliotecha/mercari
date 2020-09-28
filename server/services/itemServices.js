@@ -43,22 +43,19 @@ exports.getItem = async (req, res) => {
   }
 };
 
-exports.createItem = (req, res) => {
-  const newId = items[items.length - 1].id + 1;
-  const newItem = Object.assign({}, { id: newId }, req.body);
-  // ファイル内の配列に追加
-  items.push(newItem);
-
-  fs.writeFileSync(
-    path.join(__dirname, '../data.json'),
-    JSON.stringify({ items })
-  );
-  res.status(201).json({
-    status: 'success',
-    data: {
-      items: newItem,
-    },
-  });
+exports.createItem = async (req, res) => {
+  try {
+    const result = await db.query(
+      'insert into items (imgUrl, price, description) values ($1, $2, $3)',
+      [req.body.imgUrl, req.body.price, req.body.description]
+    );
+    console.log('result', result);
+    return res.status(200).json({
+      status: 'success',
+    });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 exports.updateItem = (req, res) => {
