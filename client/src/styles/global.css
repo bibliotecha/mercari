@@ -5,6 +5,7 @@
 html {
   box-sizing: inherit;
   scroll-behavior: smooth;
+  height: 100vh;
 }
 
 body {
