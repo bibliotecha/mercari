@@ -12,7 +12,7 @@ export const AuthFooter = () => {
         }}>
         <div className='footer__links'>
           <div style={{ margin: '10px 4px 10px 4px', textAlign: 'center' }}>
-            <a style={{ display: 'block', fontSize: 13 }}>
+            <a href='#' style={{ display: 'block', fontSize: 13 }}>
               プライバシーポリシー
             </a>
           </div>
@@ -20,7 +20,7 @@ export const AuthFooter = () => {
             <a style={{ display: 'block', fontSize: 13 }}>メルカリ利用規約</a>
           </div>
           <div style={{ margin: '10px 4px 10px 4px', textAlign: 'center' }}>
-            <a style={{ display: 'block', fontSize: 13 }}>
+            <a href='#' style={{ display: 'block', fontSize: 13 }}>
               特定商引に関する表記
             </a>
           </div>

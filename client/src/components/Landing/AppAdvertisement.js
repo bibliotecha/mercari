@@ -7,34 +7,34 @@ import AD_PHONES from '../../assets/img/ad_phones.png';
 
 export const AppAdvertisement = () => {
   return (
-    <section class='app-section'>
-      <div class='app-section__content'>
-        <div class='app-section__icons-app-mobile'>
-          <img src={AppIcon} alt='app-icon' width='50px' />
+    <section className='app-section'>
+      <div className='app-section__content'>
+        <div className='app-section__icons-app-mobile'>
+          <img src={AppIcon} alt='app-icon' width='45px' />
         </div>
-        <div class='app-section__content-titles'>
-          <div class='app-section__subtitle'>
+        <div className='app-section__content-titles'>
+          <div className='app-section__subtitle'>
             <h3>スマホでかんたんフリマアプリ</h3>
           </div>
-          <div class='app-section__title'>
+          <div className='app-section__title'>
             <h2>いますぐ無料ダウンロード！</h2>
           </div>
         </div>
 
-        <div class='app-section__icons'>
-          <div class='app-section__icons-app'>
+        <div className='app-section__icons'>
+          <div className='app-section__icons--app'>
             <img src={AppIcon} alt='app-icon' />
           </div>
-          <div class='app-section__icons--appstore'>
+          <div className='app-section__icons--appstore'>
             <AppStore />
           </div>
-          <div class='app-section__icons-gpstore'>
+          <div className='app-section__icons--gpstore'>
             <img src={GooglePlay} alt='google-play' />
           </div>
         </div>
       </div>
 
-      <div class='app-section__phone-img'>
+      <div className='app-section__phone-img'>
         <div>
           <img src={AD_PHONES} width='300px' alt='phone' />
         </div>

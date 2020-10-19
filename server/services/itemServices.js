@@ -1,14 +1,8 @@
 const db = require('../db');
 
-const fs = require('fs');
-const path = require('path');
-const { items } = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '../data.json'))
-);
-
 exports.getItems = async (req, res) => {
   try {
-    const result = await db.query('SELECT * FROM items');
+    const result = await db.query('SELECT * FROM item');
     return res.status(200).json({
       status: 'successful',
       results: result.rows.length,
@@ -25,9 +19,7 @@ exports.getItem = async (req, res) => {
 
   try {
     // `${}`でも結果だけ見れば同じだが、ハッキングされる恐れがあるので以下のやり方にしよう
-    const result = await db.query('SELECT * FROM items WHERE id=$1', [
-      numberId,
-    ]);
+    const result = await db.query('SELECT * FROM item WHERE id=$1', [numberId]);
     if (!result.rows[0]) {
       res.status(400).json({
         status: 'failed',
@@ -46,7 +38,7 @@ exports.getItem = async (req, res) => {
 exports.createItem = async (req, res) => {
   try {
     const result = await db.query(
-      'INSERT INTO items (imgUrl, price, description) VALUES ($1, $2, $3) returning *',
+      'INSERT INTO item (imgUrl, price, description) VALUES ($1, $2, $3) returning *',
       [req.body.imgUrl, req.body.price, req.body.description]
     );
     return res.status(200).json({
@@ -64,7 +56,7 @@ exports.updateItem = async (req, res) => {
 
   try {
     const result = await db.query(
-      'UPDATE ITEMS SET imgUrl=$1, price=$2, description=$3 WHERE id=$4 returning *',
+      'UPDATE item SET imgUrl=$1, price=$2, description=$3 WHERE id=$4 returning *',
       [req.body.imgUrl, req.body.price, req.body.description, numberId]
     );
 
@@ -83,7 +75,7 @@ exports.deleteItem = async (req, res) => {
   const numberId = parseInt(id);
 
   try {
-    const result = await db.query('DELETE FROM items where id=$1 returning *', [
+    const result = await db.query('DELETE FROM item where id=$1 returning *', [
       numberId,
     ]);
     if (result.rows.length === 0) {

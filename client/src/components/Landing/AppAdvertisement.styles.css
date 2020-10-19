@@ -38,12 +38,12 @@
   display: none;
 }
 
-.app-section__icons-app {
+.app-section__icons--app {
   width: 70px;
 }
 
 .app-section__icons--appstore {
-  width: 140px;
+  width: 110px;
 }
 
 .app-section__icons--appstore svg {
@@ -51,8 +51,8 @@
   height: auto;
 }
 
-.app-section__icons-gpstore {
-  width: 160px;
+.app-section__icons--gpstore {
+  width: 140px;
 }
 
 .app-section__phone-img {
@@ -66,6 +66,8 @@
 
   .app-section__content {
     flex-direction: column;
+    height: 100%;
+    justify-content: center;
   }
 
   .app-section__content-titles {
@@ -98,8 +100,20 @@
   .app-section__icons {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-top: 10px;
+  }
+
+  .app-section__icons--app {
+    margin-right: 30px;
+  }
+
+  .app-section__icons--appstore {
+    margin-right: 6px;
+  }
+
+  .app-section__icons--gpstore {
+    margin-right: 6px;
   }
 }
