@@ -15,9 +15,15 @@ export const Registration = () => {
     day: '',
   });
   //　inlineで書くよりもここで宣言した方がいい
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(info);
+    await fetch('http://localhost:4000/signup/registration', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(info),
+    });
   };
 
   return (
@@ -59,7 +65,10 @@ export const Registration = () => {
             }}>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <div style={{ width: 300 }}>
-                <form method='post' onSubmit={handleSubmit}>
+                <form
+                  action='localhost:4000/signup/registration'
+                  method='post'
+                  onSubmit={handleSubmit}>
                   <div>
                     <div>
                       <label htmlFor='nickname'>ニックネーム</label>

@@ -13,6 +13,10 @@ const userRouter = require('./routes/userRouter');
 app.use(express.json());
 app.use(cors());
 
+app.post('/signup/registration', (req, res) => {
+  console.log('received message');
+});
+
 app.use('/items', itemRouter);
 app.use('/users', userRouter);
 
