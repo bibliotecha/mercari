@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 
 export const Registration = () => {
   const [info, setInfo] = useState({
@@ -16,7 +17,7 @@ export const Registration = () => {
   //　inlineで書くよりもここで宣言した方がいい
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('clicked');
+    console.log(info);
   };
 
   return (
@@ -50,6 +51,7 @@ export const Registration = () => {
           </div>
           <div
             style={{
+              padding: '30px 0',
               width: '100%',
               maxWidth: 700,
               backgroundColor: 'white',
@@ -57,10 +59,10 @@ export const Registration = () => {
             }}>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <div style={{ width: 300 }}>
-                <form onSubmit={handleSubmit}>
+                <form method='post' onSubmit={handleSubmit}>
                   <div>
                     <div>
-                      <label for='nickname'>ニックネーム</label>
+                      <label htmlFor='nickname'>ニックネーム</label>
                     </div>
                     <div>
                       <input
@@ -71,6 +73,10 @@ export const Registration = () => {
                           borderRadius: 3,
                           fontSize: 16,
                         }}
+                        onChange={(e) =>
+                          setInfo({ ...info, nickname: e.target.value })
+                        }
+                        value={info.nickname}
                         id='nickname'
                         type='text'
                         placeholder='例）山田太郎'
@@ -79,10 +85,14 @@ export const Registration = () => {
                   </div>
                   <div>
                     <div>
-                      <label for='email'>メールアドレス</label>
+                      <label htmlFor='email'>メールアドレス</label>
                     </div>
                     <div>
                       <input
+                        onChange={(e) =>
+                          setInfo({ ...info, email: e.target.value })
+                        }
+                        value={info.email}
                         style={{
                           width: '100%',
                           padding: 10,
@@ -98,10 +108,14 @@ export const Registration = () => {
                   </div>
                   <div>
                     <div>
-                      <label for='password'>パスワード</label>
+                      <label htmlFor='password'>パスワード</label>
                     </div>
                     <div>
                       <input
+                        onChange={(e) =>
+                          setInfo({ ...info, password: e.target.value })
+                        }
+                        value={info.password}
                         style={{
                           width: '100%',
                           padding: 10,
@@ -143,6 +157,9 @@ export const Registration = () => {
                     <div>
                       <div>
                         <input
+                          onChange={(e) =>
+                            setInfo({ ...info, firstName: e.target.value })
+                          }
                           style={{
                             width: '100%',
                             padding: 10,
@@ -150,6 +167,7 @@ export const Registration = () => {
                             borderRadius: 3,
                             fontSize: 16,
                           }}
+                          value={info.firstName}
                           type='text'
                           name='firstName'
                           placeholder='例）山田'
@@ -157,6 +175,9 @@ export const Registration = () => {
                       </div>
                       <div>
                         <input
+                          onChange={(e) =>
+                            setInfo({ ...info, lastName: e.target.value })
+                          }
                           style={{
                             width: '100%',
                             padding: 10,
@@ -164,6 +185,7 @@ export const Registration = () => {
                             borderRadius: 3,
                             fontSize: 16,
                           }}
+                          value={info.lastName}
                           type='text'
                           name='lastName'
                           placeholder='例）彩'
@@ -177,6 +199,9 @@ export const Registration = () => {
                     </div>
                     <div>
                       <input
+                        onChange={(e) =>
+                          setInfo({ ...info, firstNameKana: e.target.value })
+                        }
                         style={{
                           width: '100%',
                           padding: 10,
@@ -184,11 +209,15 @@ export const Registration = () => {
                           borderRadius: 3,
                           fontSize: 16,
                         }}
+                        value={info.firstNameKana}
                         type='text'
                         name='firstNameKana'
                         placeholder='例）ヤマダ'
                       />
                       <input
+                        onChange={(e) =>
+                          setInfo({ ...info, lastNameKana: e.target.value })
+                        }
                         style={{
                           width: '100%',
                           padding: 10,
@@ -197,6 +226,7 @@ export const Registration = () => {
                           fontSize: 16,
                           writingMode: 'none',
                         }}
+                        value={info.lastNameKana}
                         type='text'
                         name='lastNameKana'
                         placeholder='例）アヤ'
@@ -209,6 +239,10 @@ export const Registration = () => {
                     </div>
                     <div>
                       <select
+                        defaultValue='invalid'
+                        onChange={(e) =>
+                          setInfo({ ...info, year: e.target.value })
+                        }
                         style={{
                           display: 'inline-block',
                           //   width: '100%',
@@ -217,43 +251,43 @@ export const Registration = () => {
                           borderRadius: 3,
                           fontSize: 16,
                         }}>
-                        <option selected value='invalid'>
-                          --
-                        </option>
+                        <option value='invalid'>--</option>
                         <option value='2020'>2020</option>
                         <option value='2019'>2019</option>
                         <option value='2018'>2018</option>
                       </select>
                       <div style={{ display: 'inline-block' }}>年</div>
                       <select
+                        defaultValue='invalid'
+                        onChange={(e) =>
+                          setInfo({ ...info, month: e.target.value })
+                        }
                         style={{
                           display: 'inline-block',
-                          //   width: '100%',
                           padding: 10,
                           border: '1px solid #CCCCCC',
                           borderRadius: 3,
                           fontSize: 16,
                         }}>
-                        <option selected value='invalid'>
-                          --
-                        </option>
+                        <option value='invalid'>--</option>
                         <option value='12'>12</option>
                         <option value='11'>11</option>
                         <option value='10'>10</option>
                       </select>
                       <div style={{ display: 'inline-block' }}>月</div>
                       <select
+                        onChange={(e) =>
+                          setInfo({ ...info, day: e.target.value })
+                        }
+                        defaultValue='invalid'
                         style={{
                           display: 'inline-block',
-                          //   width: '100%',
                           padding: 10,
                           border: '1px solid #CCCCCC',
                           borderRadius: 3,
                           fontSize: 16,
                         }}>
-                        <option selected value='invalid'>
-                          --
-                        </option>
+                        <option value='invalid'>--</option>
                         <option value='31'>31</option>
                         <option value='30'>30</option>
                         <option value='29'>29</option>
@@ -268,7 +302,7 @@ export const Registration = () => {
                     </p>
                   </div>
                   <div>
-                    <input type='submit'>次へ進む</input>
+                    <input type='submit' name='submit' />
                   </div>
                   <div>
                     <p>本人情報の登録について</p>
