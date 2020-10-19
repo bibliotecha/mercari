@@ -4,10 +4,10 @@ import { BrowserRouter, Route } from 'react-router-dom';
 // Components
 import LandingPage from './pages/Landing';
 import AuthenticationPage from './pages/Authentication';
-import RegistrationPage from './pages/Registration';
 
 import { Signup } from './components/Auth/Signup';
 import { Login } from './components/Auth/Login';
+import { Registration } from './components/Auth/Registration';
 
 const Router = () => {
   return (
@@ -26,7 +26,9 @@ const Router = () => {
         </AuthenticationPage>
       </Route>
       <Route path='/signup/registration'>
-        <RegistrationPage />
+        <AuthenticationPage>
+          <Registration />
+        </AuthenticationPage>
       </Route>
     </BrowserRouter>
   );
