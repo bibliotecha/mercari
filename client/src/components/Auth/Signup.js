@@ -4,7 +4,7 @@ import { FacebookButton } from './FacebookButton';
 import { GoogleButton } from './GoogleButton';
 import { AppleButton } from './AppleButton';
 
-export const AuthContent = () => {
+export const Signup = () => {
   return (
     <div
       style={{

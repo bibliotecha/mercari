@@ -2,14 +2,13 @@ import React from 'react';
 import '../styles/pages.css';
 
 import { AuthHeader } from '../components/Auth/AuthHeader';
-import { AuthContent } from '../components/Auth/AuthContent';
 import { AuthFooter } from '../components/Auth/AuthFooter';
 
-const AuthenticationPage = () => {
+const AuthenticationPage = ({ children }) => {
   return (
     <div className='auth'>
       <AuthHeader />
-      <AuthContent />
+      {children}
       <AuthFooter />
     </div>
   );

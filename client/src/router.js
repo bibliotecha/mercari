@@ -6,6 +6,9 @@ import LandingPage from './pages/Landing';
 import AuthenticationPage from './pages/Authentication';
 import RegistrationPage from './pages/Registration';
 
+import { Signup } from './components/Auth/Signup';
+import { Login } from './components/Auth/Login';
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -13,12 +16,16 @@ const Router = () => {
         <LandingPage />
       </Route>
       <Route exact path='/signup/'>
-        <AuthenticationPage />
+        <AuthenticationPage>
+          <Signup />
+        </AuthenticationPage>
       </Route>
-      <Route exact path='/signup/'>
-        <AuthenticationPage />
+      <Route exact path='/login'>
+        <AuthenticationPage>
+          <Login />
+        </AuthenticationPage>
       </Route>
-      <Route exact path='/auth/registration'>
+      <Route path='/signup/registration'>
         <RegistrationPage />
       </Route>
     </BrowserRouter>

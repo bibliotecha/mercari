@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Css
 import './HeaderTablet.styles.css';
@@ -62,10 +63,10 @@ export const HeaderTablet = () => {
           <div className='header__right'>
             <div className='header__buttons'>
               <div className='header__button--register'>
-                <button>新規会員登録</button>
+                <Link to='/signup'>新規会員登録</Link>
               </div>
               <div className='header__button--login'>
-                <button>ログイン</button>
+                <Link to='/login'>ログイン</Link>
               </div>
             </div>
           </div>
