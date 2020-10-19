@@ -5,12 +5,12 @@ const router = express.Router();
 
 router.route('/').get(UserServices.getAllUsers).post(UserServices.createUser);
 
-router.route('/users/signup').post(UserServices.signup);
+router.route('/signup').post(UserServices.signup);
 
-router.route('/users/login').post(UserServices.login);
+router.route('/login').post(UserServices.login);
 
 router
-  .route('/users/:id')
+  .route('/:id')
   .get(UserServices.getUser)
   .patch(UserServices.updateUser)
   .delete(UserServices.deleteUser);

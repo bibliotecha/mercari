@@ -17,7 +17,7 @@ export const Registration = () => {
   //　inlineで書くよりもここで宣言した方がいい
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch('http://localhost:4000/signup/registration', {
+    await fetch('http://localhost:4000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
