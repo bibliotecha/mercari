@@ -1,6 +1,24 @@
 import React from 'react';
 
 export const Registration = () => {
+  const [info, setInfo] = useState({
+    nickname: '',
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    firstNameKana: '',
+    lastNameKana: '',
+    year: '',
+    month: '',
+    day: '',
+  });
+  //　inlineで書くよりもここで宣言した方がいい
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('clicked');
+  };
+
   return (
     <div
       style={{
@@ -39,7 +57,7 @@ export const Registration = () => {
             }}>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <div style={{ width: 300 }}>
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div>
                     <div>
                       <label for='nickname'>ニックネーム</label>
@@ -250,9 +268,7 @@ export const Registration = () => {
                     </p>
                   </div>
                   <div>
-                    <button onClick={() => console.log('next step')}>
-                      次へ進む
-                    </button>
+                    <input type='submit'>次へ進む</input>
                   </div>
                   <div>
                     <p>本人情報の登録について</p>
