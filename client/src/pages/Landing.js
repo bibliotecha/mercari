@@ -7,7 +7,7 @@ import { AppAdvertisement } from '../components/Landing/AppAdvertisement';
 import { Footer } from '../components/Landing/Footer';
 import { FloatButton } from '../components/Landing/FloatButton';
 
-export default () => {
+const LandingPage = () => {
   return (
     <>
       <Header />
@@ -19,3 +19,5 @@ export default () => {
     </>
   );
 };
+
+export default LandingPage;

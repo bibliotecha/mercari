@@ -2,17 +2,21 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 // Components
-import Landing from './pages/Landing';
-import Authentication from './pages/Authentication';
+import LandingPage from './pages/Landing';
+import AuthenticationPage from './pages/Authentication';
+import RegistrationPage from './pages/Registration';
 
 export default () => {
   return (
     <BrowserRouter>
       <Route exact path='/'>
-        <Landing />
+        <LandingPage />
       </Route>
-      <Route exact path='/auth'>
-        <Authentication />
+      <Route exact path='/auth/'>
+        <AuthenticationPage />
+      </Route>
+      <Route exact path='/auth/registration'>
+        <RegistrationPage />
       </Route>
     </BrowserRouter>
   );
