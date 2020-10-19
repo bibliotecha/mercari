@@ -4,6 +4,11 @@ const UserServices = require('../services/userServices');
 const router = express.Router();
 
 router.route('/').get(UserServices.getAllUsers).post(UserServices.createUser);
+
+router.route('/users/signup').post(UserServices.signup);
+
+router.route('/users/login').post(UserServices.login);
+
 router
   .route('/users/:id')
   .get(UserServices.getUser)
