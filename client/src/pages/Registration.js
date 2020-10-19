@@ -110,7 +110,7 @@ const Registration = () => {
                     <p>生年月日</p>
                   </div>
                   <div>
-                    <input type='year' name='year' />
+                    <input type='datetime' name='year' />
                     <input type='month' name='month' />
                     <input type='day' name='day' />
                   </div>
