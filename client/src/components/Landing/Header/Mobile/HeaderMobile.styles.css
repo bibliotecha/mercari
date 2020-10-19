@@ -25,11 +25,12 @@
 }
 
 /* 共通項目 */
-.header__buttons button {
+.header__buttons a {
   border-radius: 4px;
   padding: 5px 10px;
   font-weight: 400;
   font-size: 15px;
+  display: block;
 }
 
 /* 新規会員 */
@@ -37,13 +38,13 @@
   margin-right: 5px;
 }
 
-.header__button--register > button {
+.header__button--register > a {
   background-color: #ea352e;
   color: white;
   border: 1px solid transparent;
 }
 
-.header__button--login > button {
+.header__button--login > a {
   background-color: white;
   color: #3295ee;
   border: 1px solid #3295ee;

@@ -6,13 +6,16 @@ import LandingPage from './pages/Landing';
 import AuthenticationPage from './pages/Authentication';
 import RegistrationPage from './pages/Registration';
 
-export default () => {
+const Router = () => {
   return (
     <BrowserRouter>
       <Route exact path='/'>
         <LandingPage />
       </Route>
-      <Route exact path='/auth/'>
+      <Route exact path='/signup/'>
+        <AuthenticationPage />
+      </Route>
+      <Route exact path='/signup/'>
         <AuthenticationPage />
       </Route>
       <Route exact path='/auth/registration'>
@@ -21,3 +24,5 @@ export default () => {
     </BrowserRouter>
   );
 };
+
+export default Router;

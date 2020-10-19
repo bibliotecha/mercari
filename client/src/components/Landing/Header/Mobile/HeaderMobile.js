@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Img
 import Logo from '../../../../assets/img/mercari_logo.png';
@@ -16,10 +17,10 @@ export const HeaderMobile = () => {
           </div>
           <div className='header__buttons'>
             <div className='header__button--register'>
-              <button>新規会員</button>
+              <Link to='/signup'>新規会員</Link>
             </div>
             <div className='header__button--login'>
-              <button>ログイン</button>
+              <Link to='/login'>ログイン</Link>
             </div>
           </div>
         </div>
