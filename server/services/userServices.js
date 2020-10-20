@@ -4,21 +4,37 @@ exports.signup = async (req, res) => {
   // if there is email
   // error response
   try {
-    console.log('entered', req.body.email, req.body.password);
-    const result = await db.query(
-      'SELECT * FROM "user" WHERE email=$1 AND password=$2',
-      [req.body.email, req.body.password]
-    );
-    if (result.rows.length === 0) {
-      res.status(400).json({
+    const result = await db.query('SELECT * FROM "user" WHERE email=$1', [
+      req.body.email,
+    ]);
+    console.log('result', result.rows);
+    if (result.rows.length !== 0) {
+      return res.status(400).json({
         status: 'fail',
-        message: 'email or password is wrong',
+        message: 'email exists',
       });
     }
+    await db.query(
+      'INSERT INTO "user" (nickname, email, password, "firstName", "lastName", "firstNameKana", "lastNameKana", year, month, day) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
+      [
+        req.body.nickname,
+        req.body.email,
+        req.body.password,
+        req.body.firstName,
+        req.body.lastName,
+        req.body.firstNameKana,
+        req.body.lastNameKana,
+        req.body.year,
+        req.body.month,
+        req.body.day,
+      ]
+    );
+    res.cookie('testcookie', '1239090');
     res.status(200).json({
       status: 'success',
     });
   } catch (err) {
+    console.log(err);
     res.status(400).json({
       status: 'error',
       message: 'error during the process',
