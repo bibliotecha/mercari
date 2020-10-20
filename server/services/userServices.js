@@ -7,7 +7,6 @@ exports.signup = async (req, res) => {
     const result = await db.query('SELECT * FROM "user" WHERE email=$1', [
       req.body.email,
     ]);
-    console.log('result', result.rows);
     if (result.rows.length !== 0) {
       return res.status(400).json({
         status: 'fail',
@@ -29,7 +28,7 @@ exports.signup = async (req, res) => {
         req.body.day,
       ]
     );
-    res.cookie('testcookie', '1239090');
+    res.cookie('testcookie1', '1239090');
     res.status(200).json({
       status: 'success',
     });

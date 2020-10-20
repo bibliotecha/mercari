@@ -13,7 +13,7 @@ const userRouter = require('./routes/userRouter');
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 
 app.use('/items', itemRouter);
 app.use('/users', userRouter);

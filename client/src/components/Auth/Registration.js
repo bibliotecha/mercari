@@ -19,6 +19,7 @@ export const Registration = () => {
     e.preventDefault();
     await fetch('http://localhost:4000/users/signup', {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
