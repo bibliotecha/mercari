@@ -17,14 +17,16 @@ export const Registration = () => {
   //　inlineで書くよりもここで宣言した方がいい
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch('http://localhost:4000/users/signup', {
+    const result = await fetch('http://localhost:4000/users/signup', {
       method: 'POST',
       credentials: 'include',
       headers: {
+        'Access-Control-Allow-Origin': 'http://localhost:4000',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(info),
     });
+    console.log('handle result', result);
   };
 
   return (

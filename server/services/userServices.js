@@ -28,7 +28,6 @@ exports.signup = async (req, res) => {
         req.body.day,
       ]
     );
-    res.cookie('testcookie1', '1239090');
     res.status(200).json({
       status: 'success',
     });
@@ -41,8 +40,30 @@ exports.signup = async (req, res) => {
   }
 };
 
-exports.login = (req, res) => {
+exports.login = async (req, res) => {
   // get email and password from data
+  try {
+    const result = await db.query(
+      `SELECT * FROM "user" WHERE username=$1 AND password=$2`,
+      req.body.username,
+      req.body.password
+    );
+    if (result.rows.length !== 0) {
+      return res.status(404).json({
+        status: 'error',
+        message: 'the email or password is wrong',
+      });
+    }
+    res.status(200).json({
+      status: 'success',
+      message: 'error during the process',
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'error',
+      message: 'error during the process',
+    });
+  }
   // if result not found
   // error response
   // give cookie
