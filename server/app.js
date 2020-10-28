@@ -13,7 +13,7 @@ const userRouter = require('./routes/userRouter');
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({ origin: '*', credentials: true }));
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.use('/items', itemRouter);
 app.use('/users', userRouter);

@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FacebookButton } from './FacebookButton';
 import { GoogleButton } from './GoogleButton';
 import { AppleButton } from './AppleButton';
 import './Login.styles.css';
 
 export const Login = () => {
+  const [info, setInfo] = useState({
+    email: '',
+    password: '',
+    error: '',
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch('http://localhost:4000/users/login', {
+      // credentials: 'include',
+      method: 'POST',
+      headers: {
+        'Access-Control-Allow-Origin': 'http://localhost:4000',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(info),
+    });
+    const resJson = await response.json();
+    console.log(resJson.status);
+    if (resJson.status !== 'success') {
+      setInfo({ ...info, error: resJson.message });
+    }
+  };
   return (
     <div className='login'>
       <div className='login--inner'>
@@ -39,29 +62,43 @@ export const Login = () => {
             <div className='button__wrapper'>
               <AppleButton />
             </div>
-            <div style={{ marginTop: 30, width: '100%' }}>
-              <div style={{ margin: '10px 0' }}>
-                <input
-                  className='form__input'
-                  type='text'
-                  placeholder='メールアドレス'
-                />
-              </div>
-              <div style={{ margin: '10px 0' }}>
-                <input
-                  className='form__input'
-                  type='text'
-                  placeholder='パスワード'
-                />
-              </div>
-            </div>
-            <div className='button__block'>
-              <a href='/signup' className='button__anchor'>
-                <div className='button__content'>
-                  <div style={{ fontSize: 14, color: 'white' }}>ログイン</div>
+            <div>{info.error}</div>
+            <form
+              method='post'
+              onSubmit={handleSubmit}
+              style={{ width: '100%' }}>
+              <div style={{ marginTop: 30, width: '100%' }}>
+                <div style={{ margin: '10px 0' }}>
+                  <input
+                    onChange={(e) =>
+                      setInfo({ ...info, email: e.target.value })
+                    }
+                    value={info.email}
+                    className='form__input'
+                    type='text'
+                    placeholder='メールアドレス'
+                  />
                 </div>
-              </a>
-            </div>
+                <div style={{ margin: '10px 0' }}>
+                  <input
+                    onChange={(e) =>
+                      setInfo({ ...info, password: e.target.value })
+                    }
+                    value={info.password}
+                    className='form__input'
+                    type='text'
+                    placeholder='パスワード'
+                  />
+                </div>
+              </div>
+              <div className='button__block'>
+                <a href='/signup' className='button__anchor'>
+                  <div className='button__content'>
+                    <input type='submit' value='ログイン' />
+                  </div>
+                </a>
+              </div>
+            </form>
             <div style={{ width: '100%', margin: '8px 0' }}>
               <a href='/signup' className='forgot__password'>
                 パスワードをお忘れの方

@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const db = require('../db');
 
 exports.signup = async (req, res) => {
@@ -13,12 +14,17 @@ exports.signup = async (req, res) => {
         message: 'email exists',
       });
     }
+    // bcrypt hasing
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
+    console.log('hashedpassword', hashedPassword);
+
     await db.query(
       'INSERT INTO "user" (nickname, email, password, "firstName", "lastName", "firstNameKana", "lastNameKana", year, month, day) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
       [
         req.body.nickname,
         req.body.email,
-        req.body.password,
+        hashedPassword,
         req.body.firstName,
         req.body.lastName,
         req.body.firstNameKana,
@@ -43,15 +49,23 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
   // get email and password from data
   try {
-    const result = await db.query(
-      `SELECT * FROM "user" WHERE username=$1 AND password=$2`,
-      req.body.username,
-      req.body.password
-    );
-    if (result.rows.length !== 0) {
+    const result = await db.query(`SELECT * FROM "user" WHERE email=$1`, [
+      req.body.email,
+    ]);
+    if (result.rows.length === 0) {
       return res.status(404).json({
         status: 'error',
-        message: 'the email or password is wrong',
+        message: 'no such username exists',
+      });
+    }
+    const matched = await bcrypt.compare(
+      req.body.password,
+      result.rows[0].password
+    );
+    if (!matched) {
+      return res.status(400).json({
+        status: 'fail',
+        message: "the password didn't match",
       });
     }
     res.status(200).json({
@@ -59,6 +73,7 @@ exports.login = async (req, res) => {
       message: 'error during the process',
     });
   } catch (err) {
+    console.log(err);
     res.status(400).json({
       status: 'error',
       message: 'error during the process',
