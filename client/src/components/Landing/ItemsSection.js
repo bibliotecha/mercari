@@ -47,24 +47,24 @@ export const ItemsSection = () => {
       return (
         <li key={item.id}>
           <a href='http://www.google.com'>
-            <div class='card card-none'>
-              <div class='card__preview'>
-                <div class='card__preview--price'>
-                  <div class='card__preview--text'>
+            <div className='card card-none'>
+              <div className='card__preview'>
+                <div className='card__preview--price'>
+                  <div className='card__preview--text'>
                     <p>¥6666</p>
                   </div>
                 </div>
-                <img src={item.imgurl} alt='' />
+                <img src={item.imgUrl} alt='' />
               </div>
 
-              <div class='card__caption'>
-                <div class='card__caption-description'>
+              <div className='card__caption'>
+                <div className='card__caption-description'>
                   <span>{item.description}</span>
-                  <div class='card__caption-likes'>
-                    <div class='card__like-icon'>
+                  <div className='card__caption-likes'>
+                    <div className='card__like-icon'>
                       <Heart />
                     </div>
-                    <div class='card__like-text'>
+                    <div className='card__like-text'>
                       <span id='count'>20</span>
                     </div>
                   </div>
@@ -78,24 +78,24 @@ export const ItemsSection = () => {
       return (
         <li key={item.id}>
           <a href='http://www.google.com'>
-            <div class='card'>
-              <div class='card__preview'>
-                <div class='card__preview--price'>
-                  <div class='card__preview--text'>
+            <div className='card'>
+              <div className='card__preview'>
+                <div className='card__preview--price'>
+                  <div className='card__preview--text'>
                     <p>¥{item.price}</p>
                   </div>
                 </div>
-                <img src={item.imgurl} alt='' />
+                <img src={item.imgUrl} alt='' />
               </div>
 
-              <div class='card__caption'>
-                <div class='card__caption-description'>
+              <div className='card__caption'>
+                <div className='card__caption-description'>
                   <span>{item.description}</span>
-                  <div class='card__caption-likes'>
-                    <div class='card__like-icon'>
+                  <div className='card__caption-likes'>
+                    <div className='card__like-icon'>
                       <Heart />
                     </div>
-                    <div class='card__like-text'>
+                    <div className='card__like-text'>
                       <span id='count'>{item.like}</span>
                     </div>
                   </div>
