@@ -1,8 +1,10 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import './Registration.styles.css';
 
 export const Registration = () => {
+  const history = useHistory();
   const [info, setInfo] = useState({
     nickname: '',
     email: '',
@@ -14,20 +16,26 @@ export const Registration = () => {
     year: '',
     month: '',
     day: '',
+    error: '',
   });
   //　inlineで書くよりもここで宣言した方がいい
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await fetch('http://localhost:4000/users/signup', {
+    const response = await fetch('http://localhost:4000/users/signup', {
       method: 'POST',
-      // credentials: 'include',
       headers: {
         'Access-Control-Allow-Origin': 'http://localhost:4000',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(info),
     });
-    console.log('handle result', result);
+    const resJson = await response.json();
+    console.log('rseu', resJson);
+    if (resJson.status === 'success') {
+      // add cookie(?)
+      history.push('/');
+    }
+    setInfo({ ...info, error: resJson.message });
   };
 
   return (
@@ -222,8 +230,9 @@ export const Registration = () => {
                     本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
                   </p>
                 </div>
+                <div>{info.error}</div>
                 <div>
-                  <input type='submit' name='submit' />
+                  <input type='submit' value='次へ進む' />
                 </div>
                 <div>
                   <p>本人情報の登録について</p>

@@ -70,7 +70,6 @@ exports.login = async (req, res) => {
     }
     res.status(200).json({
       status: 'success',
-      message: 'error during the process',
     });
   } catch (err) {
     console.log(err);

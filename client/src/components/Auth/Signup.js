@@ -3,46 +3,17 @@ import { EmailButton } from './EmailButton';
 import { FacebookButton } from './FacebookButton';
 import { GoogleButton } from './GoogleButton';
 import { AppleButton } from './AppleButton';
+import './Signup.styles.css';
 
 export const Signup = () => {
   return (
-    <div
-      style={{
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-      }}>
-      <div
-        style={{
-          width: '100%',
-          backgroundColor: 'white',
-          maxWidth: 700,
-          paddingBottom: 50,
-        }}>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}>
-          <div
-            style={{
-              width: '100%',
-              borderBottom: '0.5px solid #F5F5F5',
-              padding: '20px 0',
-              textAlign: 'center',
-            }}>
+    <div className='signup'>
+      <div className='signup__inner'>
+        <div className='signup__content'>
+          <div className='signup__header'>
             <h5 style={{ fontSize: 20 }}>新規会員登録</h5>
           </div>
-          <div
-            style={{
-              width: 300,
-              padding: '30px 0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column',
-            }}>
+          <div className='signup__buttons'>
             <div style={{ width: '100%', margin: '8px 0' }}>
               <EmailButton />
             </div>
