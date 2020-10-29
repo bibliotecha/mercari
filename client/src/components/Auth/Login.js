@@ -25,9 +25,10 @@ export const Login = () => {
       body: JSON.stringify(info),
     });
     const resJson = await response.json();
-    console.log(resJson.status);
+
     if (resJson.status === 'success') {
-      // add cookie(?)
+      // add token to local storage(?)
+      localStorage.setItem('token', resJson.token);
       history.push('/');
     }
     setInfo({ ...info, error: resJson.message });

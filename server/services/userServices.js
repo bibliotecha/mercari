@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const db = require('../db');
 
 exports.signup = async (req, res) => {
@@ -17,8 +18,6 @@ exports.signup = async (req, res) => {
     // bcrypt hasing
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-    console.log('hashedpassword', hashedPassword);
-
     await db.query(
       'INSERT INTO "user" (nickname, email, password, "firstName", "lastName", "firstNameKana", "lastNameKana", year, month, day) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
       [
@@ -35,10 +34,17 @@ exports.signup = async (req, res) => {
       ]
     );
 
-    // jwt
+    const user = {
+      nickname: req.body.nickname,
+      email: req.body.email,
+    };
+
+    // create token
+    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN);
 
     res.status(200).json({
       status: 'success',
+      token: accessToken,
     });
   } catch (err) {
     console.log(err);
@@ -71,8 +77,18 @@ exports.login = async (req, res) => {
         message: "the password didn't match",
       });
     }
+
+    const user = {
+      nickname: result.rows[0].nickname,
+      email: req.body.email,
+    };
+
+    // create token
+    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN);
+
     res.status(200).json({
       status: 'success',
+      token: accessToken,
     });
   } catch (err) {
     console.log(err);
