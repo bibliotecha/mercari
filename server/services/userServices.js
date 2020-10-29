@@ -34,6 +34,9 @@ exports.signup = async (req, res) => {
         req.body.day,
       ]
     );
+
+    // jwt
+
     res.status(200).json({
       status: 'success',
     });
