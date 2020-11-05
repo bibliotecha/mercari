@@ -13,6 +13,12 @@ exports.getItems = async (req, res) => {
   }
 };
 
+exports.getItemsByUser = async (req, res) => {
+  console.log('entered getItemsByUser', req.body);
+  try {
+  } catch (err) {}
+};
+
 exports.getItem = async (req, res) => {
   const { id } = req.params;
   const numberId = parseInt(id);

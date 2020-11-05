@@ -1,22 +1,29 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import jwt from 'jsonwebtoken';
 
 const Items = () => {
   const history = useHistory();
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    jwt.verify(token, 'mercari', (err, user) => {
-      if (err) {
-        history.push('/');
-      }
-      const response = await fetch('/users/items', {
-          method: 'POST',
-          body: user
-      })
-      console.log('response', response)
-    }),
-      [];
-  });
+    async function fetchData(user) {
+      console.log('fetchdata', JSON.stringify(user));
+      const response = await fetch('http://localhost:4000/items/user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      });
+      console.log('itemms response', response);
+    }
+    try {
+      const token = localStorage.getItem('token');
+      const user = jwt.verify(token, 'mercari');
+      fetchData(user);
+    } catch (err) {
+      history.push('/');
+    }
+  }, []);
   return <div>items page</div>;
 };
 

@@ -10,6 +10,7 @@ router
   .route('/')
   .get(ItemServices.getItems)
   .post(ItemMiddleware.validateItem, ItemServices.createItem);
+router.route('/user').post(ItemServices.getItemsByUser);
 router
   .route('/:id')
   .get(ItemServices.getItem)
