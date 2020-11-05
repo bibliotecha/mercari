@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import jwt from 'jsonwebtoken';
 
 // Css
 import './HeaderTablet.styles.css';
@@ -9,20 +10,35 @@ import Logo from '../../../../assets/img/mercari_logo.png';
 
 export const HeaderTablet = () => {
   const displayButtons = () => {
-    const isAuthenticated = localStorage.getItem('token');
-    if (isAuthenticated) {
-      return <div>you are authenticated</div>;
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return (
+        <div className='header__buttons'>
+          <div className='header__button--register'>
+            <Link to='/signup'>新規会員登録</Link>
+          </div>
+          <div className='header__button--login'>
+            <Link to='/login'>ログイン</Link>
+          </div>
+        </div>
+      );
     }
-    return (
-      <div className='header__buttons'>
-        <div className='header__button--register'>
-          <Link to='/signup'>新規会員登録</Link>
-        </div>
-        <div className='header__button--login'>
-          <Link to='/login'>ログイン</Link>
-        </div>
-      </div>
-    );
+    return jwt.verify(token, 'mercari', (err, decoded) => {
+      console.log('decoded', decoded);
+      if (err) {
+        return (
+          <div className='header__buttons'>
+            <div className='header__button--register'>
+              <Link to='/signup'>新規会員登録</Link>
+            </div>
+            <div className='header__button--login'>
+              <Link to='/login'>ログイン</Link>
+            </div>
+          </div>
+        );
+      }
+      return <div>hello {decoded.nickname}</div>;
+    });
   };
 
   return (
