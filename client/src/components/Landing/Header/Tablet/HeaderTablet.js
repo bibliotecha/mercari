@@ -8,6 +8,23 @@ import './HeaderTablet.styles.css';
 import Logo from '../../../../assets/img/mercari_logo.png';
 
 export const HeaderTablet = () => {
+  const displayButtons = () => {
+    const isAuthenticated = localStorage.getItem('token');
+    if (isAuthenticated) {
+      return <div>you are authenticated</div>;
+    }
+    return (
+      <div className='header__buttons'>
+        <div className='header__button--register'>
+          <Link to='/signup'>新規会員登録</Link>
+        </div>
+        <div className='header__button--login'>
+          <Link to='/login'>ログイン</Link>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <header className='header--tablet'>
       <div className='header__inner--tablet'>
@@ -60,16 +77,7 @@ export const HeaderTablet = () => {
               </div>
             </div>
           </div>
-          <div className='header__right'>
-            <div className='header__buttons'>
-              <div className='header__button--register'>
-                <Link to='/signup'>新規会員登録</Link>
-              </div>
-              <div className='header__button--login'>
-                <Link to='/login'>ログイン</Link>
-              </div>
-            </div>
-          </div>
+          <div className='header__right'>{displayButtons()}</div>
         </div>
       </div>
     </header>

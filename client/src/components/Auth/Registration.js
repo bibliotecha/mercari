@@ -24,7 +24,6 @@ export const Registration = () => {
     const response = await fetch('http://localhost:4000/users/signup', {
       method: 'POST',
       headers: {
-        'Access-Control-Allow-Origin': 'http://localhost:4000',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(info),

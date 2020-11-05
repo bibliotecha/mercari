@@ -19,7 +19,7 @@ exports.signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
     await db.query(
-      'INSERT INTO "user" (nickname, email, password, "firstName", "lastName", "firstNameKana", "lastNameKana", year, month, day) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
+      'INSERT INTO "user" (nickname, email, password, first_name, last_name, first_name_kana, last_name_kana, year, month, day) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
       [
         req.body.nickname,
         req.body.email,
