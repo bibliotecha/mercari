@@ -9,9 +9,8 @@ export const ItemsSection = () => {
     async function fetchData() {
       try {
         const res = await fetch('http://localhost:4000/items');
-        console.log('res', res);
+
         const resJson = await res.json();
-        console.log('log', resJson);
         // 九つだけ表示させる
         const displayingItems = resJson.data.slice(0, 10);
 

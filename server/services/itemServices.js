@@ -60,8 +60,6 @@ exports.updateItem = async (req, res) => {
       [req.body.imgUrl, req.body.price, req.body.description, numberId]
     );
 
-    console.log('result', result);
-
     res.status(200).json({
       status: 'success',
     });

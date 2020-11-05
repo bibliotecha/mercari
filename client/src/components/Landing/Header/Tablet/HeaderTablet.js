@@ -23,8 +23,8 @@ export const HeaderTablet = () => {
         </div>
       );
     }
-    return jwt.verify(token, 'mercari', (err, decoded) => {
-      console.log('decoded', decoded);
+    return jwt.verify(token, 'mercari', (err, user) => {
+      console.log('decoded', user);
       if (err) {
         return (
           <div className='header__buttons'>
@@ -37,7 +37,11 @@ export const HeaderTablet = () => {
           </div>
         );
       }
-      return <div>hello {decoded.nickname}</div>;
+      return (
+        <div>
+          <Link to={`/user/${user.id}`}>{user.nickname}</Link>
+        </div>
+      );
     });
   };
 
