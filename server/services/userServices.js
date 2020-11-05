@@ -18,8 +18,8 @@ exports.signup = async (req, res) => {
     // bcrypt hasing
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-    await db.query(
-      'INSERT INTO "user" (nickname, email, password, first_name, last_name, first_name_kana, last_name_kana, year, month, day) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
+    const insertedData = await db.query(
+      'INSERT INTO "user" (nickname, email, password, first_name, last_name, first_name_kana, last_name_kana, year, month, day) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) returning *',
       [
         req.body.nickname,
         req.body.email,
@@ -35,10 +35,11 @@ exports.signup = async (req, res) => {
     );
 
     const user = {
-      nickname: req.body.nickname,
-      email: req.body.email,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
+      id: insertedData.rows[0].id,
+      nickname: insertedData.rows[0].nickname,
+      email: insertedData.rows[0].email,
+      firstName: insertedData.rows[0].first_name,
+      lastName: insertedData.rows[0].last_name,
     };
 
     // create token
@@ -81,8 +82,11 @@ exports.login = async (req, res) => {
     }
 
     const user = {
+      id: result.rows[0].id,
       nickname: result.rows[0].nickname,
-      email: req.body.email,
+      email: result.rows[0].email,
+      firstName: result.rows[0].first_name,
+      lastName: result.rows[0].last_name,
     };
 
     // create token

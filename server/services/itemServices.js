@@ -16,7 +16,25 @@ exports.getItems = async (req, res) => {
 exports.getItemsByUser = async (req, res) => {
   console.log('entered getItemsByUser', req.body);
   try {
-  } catch (err) {}
+    const result = await db.query('SELECT * FROM item WHERE user_id = $1', [
+      req.body.id,
+    ]);
+    if (result.rows.length === 0) {
+      return res.status(200).json({
+        status: 'success',
+        message: 'no items found',
+      });
+    }
+    res.status(200).json({
+      status: 'success',
+      data: result.rows,
+    });
+  } catch (err) {
+    return res.status(400).json({
+      status: 'error',
+      message: 'something happened during the process of get items by user',
+    });
+  }
 };
 
 exports.getItem = async (req, res) => {
