@@ -39,7 +39,7 @@ export const HeaderTablet = () => {
       }
       return (
         <div>
-          <Link to={`/user/${user.id}`}>{user.nickname}</Link>
+          <Link to={`/users/items`}>{user.nickname}</Link>
         </div>
       );
     });
